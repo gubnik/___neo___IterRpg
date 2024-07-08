@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
@@ -17,12 +17,12 @@ public class OceanArmorSetBonusProcedure {
 			return;
 		double chance = 0;
 		if (entity instanceof Player) {
-			if (entity.isUnderWater() && !entity.isSwimming() && (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).ElementalArmorCooldown <= 1
+			if (entity.isUnderWater() && !entity.isSwimming() && (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).ElementalArmorCooldown <= 1
 					&& entity.getAirSupply() < 290) {
 				entity.setAirSupply((int) (entity.getAirSupply() + 10));
 				{
 					double _setval = 8;
-					entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.ElementalArmorCooldown = _setval;
 						capability.syncPlayerVariables(entity);
 					});

@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.entity.ScallopEntity;
+import net.thirdlife.iterrpg.common.entity.ScallopEntity;
 
 import net.minecraft.world.entity.Entity;
 

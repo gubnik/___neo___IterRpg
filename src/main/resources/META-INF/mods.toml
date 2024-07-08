@@ -1,62 +1,129 @@
 modLoader="javafml"
-loaderVersion="[47,)"
-license="All Rights Reserved"
-
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 [[mods]]
-modId="iter_rpg"
-version="0.7.0"
-displayName="Iter RPG"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/iter-rpg"
-logoFile="logo.png"
-credits="https://discord.gg/veQH6zZfDb"
-authors="BaronFonShish, RayRindou"
-description="Global semi-vanilla RPG mod"
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+description='''${mod_description}'''
 
-# Start of user code block mod configuration
-# End of user code block mod configuration
+[[dependencies.${mod_id}]]
+modId="forge"
+mandatory=true
+versionRange="${forge_version_range}"
+ordering="NONE"
+side="BOTH"
 
-[[dependencies.iter_rpg]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.20.1]"
-    ordering="NONE"
-    side="BOTH"
+[[dependencies.${mod_id}]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="geckolib"
+mandatory=true
+versionRange="${geckolib_version_range}"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="curios_api"
+mandatory=false
+versionRange="[0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="bettercombat"
+mandatory=false
+versionRange="[0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="playeranimator"
+mandatory=false
+versionRange="[0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="jei"
+mandatory=false
+versionRange="[0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="cloth-config"
+mandatory=false
+versionRange="[0,)"
+ordering="NONE"
+side="BOTH"
 
 
-[[dependencies.iter_rpg]]
-    modId="curios_api"
-    mandatory=false
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.iter_rpg]]
-    modId="bettercombat"
-    mandatory=false
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.iter_rpg]]
-    modId="geckolib"
-    mandatory=false
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.iter_rpg]]
-    modId="playeranimator"
-    mandatory=false
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.iter_rpg]]
-    modId="jei"
-    mandatory=false
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.iter_rpg]]
-    modId="cloth-config"
-    mandatory=false
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
+#modLoader="javafml"
+#loaderVersion="[47,)"
+#license="All Rights Reserved"
+#
+#[[mods]]
+#modId="${mod_id}"
+#version="0.7.0"
+#displayName="Iter RPG"
+#displayURL="https://www.curseforge.com/minecraft/mc-mods/iter-rpg"
+#logoFile="logo.png"
+#credits="https://discord.gg/veQH6zZfDb"
+#authors="BaronFonShish, RayRindou"
+#description="Global semi-vanilla RPG mod"
+#
+## Start of user code block mod configuration
+## End of user code block mod configuration
+#
+#[[dependencies.${mod_id}]]
+#    modId="minecraft"
+#    mandatory=true
+#    versionRange="[1.20.1]"
+#    ordering="NONE"
+#    side="BOTH"
+#
+#
+#[[dependencies.${mod_id}]]
+#    modId="curios_api"
+#    mandatory=false
+#    versionRange="[0,)"
+#    ordering="NONE"
+#    side="BOTH"
+#[[dependencies.${mod_id}]]
+#    modId="bettercombat"
+#    mandatory=false
+#    versionRange="[0,)"
+#    ordering="NONE"
+#    side="BOTH"
+#[[dependencies.${mod_id}]]
+#    modId="geckolib"
+#    mandatory=false
+#    versionRange="[0,)"
+#    ordering="NONE"
+#    side="BOTH"
+#[[dependencies.${mod_id}]]
+#    modId="playeranimator"
+#    mandatory=false
+#    versionRange="[0,)"
+#    ordering="NONE"
+#    side="BOTH"
+#[[dependencies.${mod_id}]]
+#    modId="jei"
+#    mandatory=false
+#    versionRange="[0,)"
+#    ordering="NONE"
+#    side="BOTH"
+#[[dependencies.${mod_id}]]
+#    modId="cloth-config"
+#    mandatory=false
+#    versionRange="[0,)"
+#    ordering="NONE"
+#    side="BOTH"
 

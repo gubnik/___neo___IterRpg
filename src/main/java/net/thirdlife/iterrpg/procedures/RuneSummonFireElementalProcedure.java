@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 import net.thirdlife.iterrpg.init.IterRpgModParticleTypes;
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
 
@@ -41,16 +41,16 @@ public class RuneSummonFireElementalProcedure {
 			}
 		}
 		{
-			double _setval = (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).fire_lure + Mth.nextDouble(RandomSource.create(), 0, max);
-			entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+			double _setval = (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).fire_lure + Mth.nextDouble(RandomSource.create(), 0, max);
+			entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.fire_lure = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
-		if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).fire_lure >= 50) {
+		if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).fire_lure >= 50) {
 			{
 				double _setval = 40;
-				entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.fire_lure = _setval;
 					capability.syncPlayerVariables(entity);
 				});
@@ -80,35 +80,35 @@ public class RuneSummonFireElementalProcedure {
 								}
 								{
 									double _setval = 0;
-									entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+									entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 										capability.fire_lure = _setval;
 										capability.syncPlayerVariables(entity);
 									});
 								}
 								{
-									double _setval = (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).water_lure / 2;
-									entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+									double _setval = (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).water_lure / 2;
+									entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 										capability.water_lure = _setval;
 										capability.syncPlayerVariables(entity);
 									});
 								}
 								{
-									double _setval = (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).air_lure / 2;
-									entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+									double _setval = (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).air_lure / 2;
+									entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 										capability.air_lure = _setval;
 										capability.syncPlayerVariables(entity);
 									});
 								}
 								{
-									double _setval = (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).fire_lure / 2;
-									entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+									double _setval = (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).fire_lure / 2;
+									entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 										capability.earth_lure = _setval;
 										capability.syncPlayerVariables(entity);
 									});
 								}
 								{
-									double _setval = (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).void_lure / 2;
-									entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+									double _setval = (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).void_lure / 2;
+									entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 										capability.void_lure = _setval;
 										capability.syncPlayerVariables(entity);
 									});

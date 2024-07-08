@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 import net.thirdlife.iterrpg.init.IterRpgModEnchantments;
 
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -26,7 +26,7 @@ public class WandReturnPowerProcedure {
 			wand = (entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY);
 		}
 		power = 1;
-		if (wand.getItem() == IterRpgModItems.AMETHYST_WAND.get()) {
+		if (wand.getItem() == ItemRegistry.AMETHYST_WAND.get()) {
 			power = 1;
 		} else if (wand.getItem() == ItemStack.EMPTY.getItem()) {
 			power = 0.75;
@@ -35,7 +35,7 @@ public class WandReturnPowerProcedure {
 			power = power * (1 + wand.getEnchantmentLevel(IterRpgModEnchantments.ATTUNEMENT.get()) / 50);
 			power = power + wand.getEnchantmentLevel(IterRpgModEnchantments.ATTUNEMENT.get()) / 25;
 		}
-		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY).getItem() == IterRpgModItems.RAGGED_LEGGINGS.get()) {
+		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY).getItem() == ItemRegistry.RAGGED_LEGGINGS.get()) {
 			power = power * 1.05;
 		}
 		return power;

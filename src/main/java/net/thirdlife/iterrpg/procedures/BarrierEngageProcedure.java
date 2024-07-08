@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -24,14 +24,14 @@ public class BarrierEngageProcedure {
 		boolean wallmeet = false;
 		boolean up = false;
 		boolean down = false;
-		if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get()
-				|| (world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get()
-				|| (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get()
-				|| (world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get()
-				|| (world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get()) {
+		if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get()
+				|| (world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get()
+				|| (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get()
+				|| (world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get()
+				|| (world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get()) {
 			distance = 0.5;
 			for (int index0 = 0; index0 < 16; index0++) {
-				if ((world.getBlockState(BlockPos.containing(x + 0.5, y + 0.5 + distance, z + 0.5))).getBlock() == IterRpgModBlocks.BARRIER_PROJECTOR.get()) {
+				if ((world.getBlockState(BlockPos.containing(x + 0.5, y + 0.5 + distance, z + 0.5))).getBlock() == BlockRegistry.BARRIER_PROJECTOR.get()) {
 					up = true;
 				}
 				distance = distance + 1;
@@ -58,9 +58,9 @@ public class BarrierEngageProcedure {
 							}
 						}
 						if (world.isEmptyBlock(BlockPos.containing(x + 0.5, y + 0.5 + distance, z + 0.5))) {
-							world.setBlock(BlockPos.containing(x + 0.5, y + 0.5 + distance, z + 0.5), IterRpgModBlocks.GIANT_PHANTOM_CHAIN.get().defaultBlockState(), 3);
+							world.setBlock(BlockPos.containing(x + 0.5, y + 0.5 + distance, z + 0.5), BlockRegistry.GIANT_PHANTOM_CHAIN.get().defaultBlockState(), 3);
 						}
-						if ((world.getBlockState(BlockPos.containing(x + 0.5, y + 0.5 + distance, z + 0.5))).getBlock() == IterRpgModBlocks.GIANT_PHANTOM_CHAIN.get()) {
+						if ((world.getBlockState(BlockPos.containing(x + 0.5, y + 0.5 + distance, z + 0.5))).getBlock() == BlockRegistry.GIANT_PHANTOM_CHAIN.get()) {
 							if (!world.isClientSide()) {
 								BlockPos _bp = BlockPos.containing(x + 0.5, y + 0.5 + distance, z + 0.5);
 								BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -71,7 +71,7 @@ public class BarrierEngageProcedure {
 									_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 							}
 						}
-						if ((world.getBlockState(BlockPos.containing(x + 0.5, y + 0.5 + distance, z + 0.5))).getBlock() == IterRpgModBlocks.BARRIER_PROJECTOR.get()) {
+						if ((world.getBlockState(BlockPos.containing(x + 0.5, y + 0.5 + distance, z + 0.5))).getBlock() == BlockRegistry.BARRIER_PROJECTOR.get()) {
 							wallmeet = false;
 						}
 						distance = distance + 1;

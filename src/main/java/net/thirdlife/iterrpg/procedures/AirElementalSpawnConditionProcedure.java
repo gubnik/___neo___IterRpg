@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.resources.ResourceLocation;
@@ -14,7 +14,7 @@ public class AirElementalSpawnConditionProcedure {
 						|| world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("plains")) || world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("plains"))
 						|| world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("jagged_peaks")) || world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("frozen_peaks"))
 						|| world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("stony_peaks")) || world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("meadow")))
-				&& IterRpgModVariables.MapVariables.get(world).unlocked_air && ElementalsSpawnConditionProcedure.execute(world, x, y, z)) {
+				&& GlobalVariables.MapVariables.get(world).unlocked_air && ElementalsSpawnConditionProcedure.execute(world, x, y, z)) {
 			return true;
 		}
 		return false;

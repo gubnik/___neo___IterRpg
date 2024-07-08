@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.BlockState;
@@ -62,18 +62,18 @@ public class ScytheReapProcedure {
 				if (entity instanceof LivingEntity _entity)
 					_entity.swing(InteractionHand.OFF_HAND, true);
 			}
-			if (itemstack.getItem() == IterRpgModItems.WOODEN_SCYTHE.get() || itemstack.getItem() == IterRpgModItems.STONE_SCYTHE.get()) {
+			if (itemstack.getItem() == ItemRegistry.WOODEN_SCYTHE.get() || itemstack.getItem() == ItemRegistry.STONE_SCYTHE.get()) {
 				xstart = 0;
 				zstart = 0;
 				repeatamount = 1;
 			}
-			if (itemstack.getItem() == IterRpgModItems.IRON_SCYTHE.get() || itemstack.getItem() == IterRpgModItems.AMETRINE_SCYTHE.get() || itemstack.getItem() == IterRpgModItems.GOLDEN_SCYTHE.get()
-					|| itemstack.getItem() == IterRpgModItems.DIAMOND_SCYTHE.get() || itemstack.getItem() == IterRpgModItems.NETHERITE_SCYTHE.get()) {
+			if (itemstack.getItem() == ItemRegistry.IRON_SCYTHE.get() || itemstack.getItem() == ItemRegistry.AMETRINE_SCYTHE.get() || itemstack.getItem() == ItemRegistry.GOLDEN_SCYTHE.get()
+					|| itemstack.getItem() == ItemRegistry.DIAMOND_SCYTHE.get() || itemstack.getItem() == ItemRegistry.NETHERITE_SCYTHE.get()) {
 				xstart = -1;
 				zstart = -1;
 				repeatamount = 3;
 			}
-			if (itemstack.getItem() == IterRpgModItems.HARVEST.get()) {
+			if (itemstack.getItem() == ItemRegistry.HARVEST.get()) {
 				xstart = -2;
 				zstart = -2;
 				repeatamount = 5;

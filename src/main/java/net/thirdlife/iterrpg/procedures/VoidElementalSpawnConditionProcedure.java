@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
-import net.thirdlife.iterrpg.entity.VoidElementalEntity;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
+import net.thirdlife.iterrpg.common.entity.VoidElementalEntity;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -26,7 +26,7 @@ public class VoidElementalSpawnConditionProcedure {
 			}
 		}
 		if (Math.abs(x) + Math.abs(z) > 1250 && (world instanceof Level _lvl ? _lvl.dimension() : Level.OVERWORLD) == Level.END && count <= 1 && ElementalsSpawnConditionProcedure.execute(world, x, y, z)
-				&& IterRpgModVariables.MapVariables.get(world).unlocked_void) {
+				&& GlobalVariables.MapVariables.get(world).unlocked_void) {
 			return true;
 		}
 		return false;

@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 
 import net.minecraft.world.level.LevelAccessor;
 
@@ -10,15 +10,15 @@ public class SealsResetProcedure {
 		double xof = 0;
 		double yof = 0;
 		double zof = 0;
-		IterRpgModVariables.MapVariables.get(world).unlocked_earth = false;
-		IterRpgModVariables.MapVariables.get(world).syncData(world);
-		IterRpgModVariables.MapVariables.get(world).unlocked_water = false;
-		IterRpgModVariables.MapVariables.get(world).syncData(world);
-		IterRpgModVariables.MapVariables.get(world).unlocked_air = false;
-		IterRpgModVariables.MapVariables.get(world).syncData(world);
-		IterRpgModVariables.MapVariables.get(world).unlocked_fire = false;
-		IterRpgModVariables.MapVariables.get(world).syncData(world);
-		IterRpgModVariables.MapVariables.get(world).unlocked_void = false;
-		IterRpgModVariables.MapVariables.get(world).syncData(world);
+		GlobalVariables.MapVariables.get(world).unlocked_earth = false;
+		GlobalVariables.MapVariables.get(world).syncData(world);
+		GlobalVariables.MapVariables.get(world).unlocked_water = false;
+		GlobalVariables.MapVariables.get(world).syncData(world);
+		GlobalVariables.MapVariables.get(world).unlocked_air = false;
+		GlobalVariables.MapVariables.get(world).syncData(world);
+		GlobalVariables.MapVariables.get(world).unlocked_fire = false;
+		GlobalVariables.MapVariables.get(world).syncData(world);
+		GlobalVariables.MapVariables.get(world).unlocked_void = false;
+		GlobalVariables.MapVariables.get(world).syncData(world);
 	}
 }

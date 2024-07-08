@@ -32,13 +32,13 @@ public class IterRpgModBrewingRecipes implements IModPlugin {
 		ItemStack potion2 = new ItemStack(Items.POTION);
 		List<ItemStack> ingredientStack = new ArrayList<>();
 		List<ItemStack> inputStack = new ArrayList<>();
-		ingredientStack.add(new ItemStack(IterRpgModBlocks.ETHERBLOOM.get()));
+		ingredientStack.add(new ItemStack(BlockRegistry.ETHERBLOOM.get()));
 		PotionUtils.setPotion(potion, Potions.WATER);
-		brewingRecipes.add(factory.createBrewingRecipe(List.copyOf(ingredientStack), potion.copy(), new ItemStack(IterRpgModItems.ETHERBLOOM_DECOCTION.get())));
+		brewingRecipes.add(factory.createBrewingRecipe(List.copyOf(ingredientStack), potion.copy(), new ItemStack(ItemRegistry.ETHERBLOOM_DECOCTION.get())));
 		ingredientStack.clear();
 		ingredientStack.add(new ItemStack(Items.CHORUS_FRUIT));
-		inputStack.add(new ItemStack(IterRpgModItems.BOTTLE_OF_OBSIDIAN_TEARS.get()));
-		brewingRecipes.add(factory.createBrewingRecipe(List.copyOf(ingredientStack), List.copyOf(inputStack), new ItemStack(IterRpgModItems.WARPED_GOO.get())));
+		inputStack.add(new ItemStack(ItemRegistry.BOTTLE_OF_OBSIDIAN_TEARS.get()));
+		brewingRecipes.add(factory.createBrewingRecipe(List.copyOf(ingredientStack), List.copyOf(inputStack), new ItemStack(ItemRegistry.WARPED_GOO.get())));
 		inputStack.clear();
 		ingredientStack.clear();
 		registration.addRecipes(RecipeTypes.BREWING, brewingRecipes);

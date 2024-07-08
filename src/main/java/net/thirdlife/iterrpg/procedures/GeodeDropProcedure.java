@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -46,13 +46,13 @@ public class GeodeDropProcedure {
 						if ((world instanceof Level _lvl ? _lvl.dimension() : Level.OVERWORLD) == Level.OVERWORLD) {
 							if (Mth.nextInt(RandomSource.create(), 1, 3) == 2) {
 								if (world instanceof ServerLevel _level) {
-									ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.DEEPSLATE_GEODE.get()));
+									ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.DEEPSLATE_GEODE.get()));
 									entityToSpawn.setPickUpDelay(10);
 									_level.addFreshEntity(entityToSpawn);
 								}
 							} else {
 								if (world instanceof ServerLevel _level) {
-									ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.STONE_GEODE.get()));
+									ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.STONE_GEODE.get()));
 									entityToSpawn.setPickUpDelay(10);
 									_level.addFreshEntity(entityToSpawn);
 								}
@@ -60,20 +60,20 @@ public class GeodeDropProcedure {
 						} else if ((world instanceof Level _lvl ? _lvl.dimension() : Level.OVERWORLD) == Level.NETHER) {
 							if (Mth.nextInt(RandomSource.create(), 1, 3) == 2) {
 								if (world instanceof ServerLevel _level) {
-									ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.BLACKSTONE_GEODE.get()));
+									ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.BLACKSTONE_GEODE.get()));
 									entityToSpawn.setPickUpDelay(10);
 									_level.addFreshEntity(entityToSpawn);
 								}
 							} else {
 								if (world instanceof ServerLevel _level) {
-									ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.NETHERRACK_GEODE.get()));
+									ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.NETHERRACK_GEODE.get()));
 									entityToSpawn.setPickUpDelay(10);
 									_level.addFreshEntity(entityToSpawn);
 								}
 							}
 						} else if ((world instanceof Level _lvl ? _lvl.dimension() : Level.OVERWORLD) == Level.END) {
 							if (world instanceof ServerLevel _level) {
-								ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.ENDSTONE_GEODE.get()));
+								ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.ENDSTONE_GEODE.get()));
 								entityToSpawn.setPickUpDelay(10);
 								_level.addFreshEntity(entityToSpawn);
 							}

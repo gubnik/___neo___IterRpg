@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.util.RandomSource;
@@ -20,7 +20,7 @@ public class RunicHivestoneHatchProcedure {
 			xpos = Mth.nextInt(RandomSource.create(), -6, 6);
 			ypos = Mth.nextInt(RandomSource.create(), -3, 3);
 			zpos = Mth.nextInt(RandomSource.create(), -6, 6);
-			if ((world.getBlockState(BlockPos.containing(x + xpos, y + ypos, z + zpos))).getBlock() == IterRpgModBlocks.SPIDER_EGG.get()) {
+			if ((world.getBlockState(BlockPos.containing(x + xpos, y + ypos, z + zpos))).getBlock() == BlockRegistry.SPIDER_EGG.get()) {
 				SpiderEggMagicHatchProcedure.execute(world, (x + xpos), (y + ypos), (z + zpos));
 			}
 		}

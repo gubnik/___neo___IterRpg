@@ -1,8 +1,8 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModMobEffects;
-import net.thirdlife.iterrpg.entity.SmallScallopEntity;
-import net.thirdlife.iterrpg.entity.ScallopEntity;
+import net.thirdlife.iterrpg.common.entity.SmallScallopEntity;
+import net.thirdlife.iterrpg.common.entity.ScallopEntity;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;

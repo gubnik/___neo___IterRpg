@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
-import net.thirdlife.iterrpg.entity.SeaArrowEntity;
+import net.thirdlife.iterrpg.common.entity.SeaArrowEntity;
 
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;

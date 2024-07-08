@@ -1,11 +1,11 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
-import net.thirdlife.iterrpg.entity.WeeperEntity;
-import net.thirdlife.iterrpg.entity.MournstoneEntity;
-import net.thirdlife.iterrpg.entity.HomingTearEntity;
-import net.thirdlife.iterrpg.entity.GrieverEntity;
-import net.thirdlife.iterrpg.entity.AuraMobspawnEntity;
+import net.thirdlife.iterrpg.common.entity.WeeperEntity;
+import net.thirdlife.iterrpg.common.entity.MournstoneEntity;
+import net.thirdlife.iterrpg.common.entity.HomingTearEntity;
+import net.thirdlife.iterrpg.common.entity.GrieverEntity;
+import net.thirdlife.iterrpg.common.entity.AuraMobspawnEntity;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;

@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
-import net.thirdlife.iterrpg.entity.BonbProjectileEntity;
+import net.thirdlife.iterrpg.common.entity.BonbProjectileEntity;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.GameType;

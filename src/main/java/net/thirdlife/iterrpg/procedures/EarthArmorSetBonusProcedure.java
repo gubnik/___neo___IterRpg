@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -24,7 +24,7 @@ public class EarthArmorSetBonusProcedure {
 		if (entity == null)
 			return;
 		double chance = 0;
-		if (entity.isShiftKeyDown() && (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).ElementalArmorCooldown == 0) {
+		if (entity.isShiftKeyDown() && (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).ElementalArmorCooldown == 0) {
 			if ((world.getBlockState(BlockPos.containing(entity.getX() + entity.getLookAngle().x * 0.8, entity.getY(), entity.getZ() + entity.getLookAngle().z * 0.8))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))
 					&& (world.getBlockState(BlockPos.containing(entity.getX() + entity.getLookAngle().x * 0.8, entity.getY() + 1, entity.getZ() + entity.getLookAngle().z * 0.8))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
 				{
@@ -35,7 +35,7 @@ public class EarthArmorSetBonusProcedure {
 				}
 				{
 					double _setval = 16;
-					entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.ElementalArmorCooldown = _setval;
 						capability.syncPlayerVariables(entity);
 					});
@@ -43,7 +43,7 @@ public class EarthArmorSetBonusProcedure {
 			} else if ((world.getBlockState(BlockPos.containing(entity.getX(), entity.getY() - 0.001, entity.getZ()))).is(BlockTags.create(new ResourceLocation("minecraft:leaves"))) && entity.getLookAngle().y < -0.92) {
 				{
 					double _setval = 20;
-					entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.ElementalArmorCooldown = _setval;
 						capability.syncPlayerVariables(entity);
 					});
@@ -56,10 +56,10 @@ public class EarthArmorSetBonusProcedure {
 				}
 			}
 		}
-		if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).ElementalArmorPassiveCooldown <= 0) {
+		if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).ElementalArmorPassiveCooldown <= 0) {
 			{
 				double _setval = 320;
-				entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.ElementalArmorPassiveCooldown = _setval;
 					capability.syncPlayerVariables(entity);
 				});

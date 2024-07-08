@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 import net.thirdlife.iterrpg.init.IterRpgModEnchantments;
 
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -27,7 +27,7 @@ public class WandReturnCooldownProcedure {
 			wand = (entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY);
 		}
 		cooldown = 1;
-		if (wand.getItem() == IterRpgModItems.AMETHYST_WAND.get()) {
+		if (wand.getItem() == ItemRegistry.AMETHYST_WAND.get()) {
 			cooldown = 1;
 		} else if (wand.getItem() == ItemStack.EMPTY.getItem()) {
 			cooldown = 1.1;
@@ -35,7 +35,7 @@ public class WandReturnCooldownProcedure {
 		if (EnchantmentHelper.getItemEnchantmentLevel(IterRpgModEnchantments.DEXTERITY.get(), wand) != 0) {
 			cooldown = cooldown * (1 - wand.getEnchantmentLevel(IterRpgModEnchantments.DEXTERITY.get()) / 7.5);
 		}
-		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY).getItem() == IterRpgModItems.RAGGED_CHESTPLATE.get()) {
+		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY).getItem() == ItemRegistry.RAGGED_CHESTPLATE.get()) {
 			cooldown = cooldown * 0.9;
 		}
 		return cooldown;

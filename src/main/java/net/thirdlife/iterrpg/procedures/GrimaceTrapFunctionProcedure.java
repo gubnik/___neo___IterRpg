@@ -2,8 +2,8 @@ package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModGameRules;
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
-import net.thirdlife.iterrpg.entity.GrimaceEntity;
+import net.thirdlife.iterrpg.init.BlockRegistry;
+import net.thirdlife.iterrpg.common.entity.GrimaceEntity;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -124,10 +124,10 @@ public class GrimaceTrapFunctionProcedure {
 			}.getValue(world, BlockPos.containing(x, y, z), "mobs") > 0) {
 				if (world instanceof ServerLevel _level)
 					_level.sendParticles(ParticleTypes.SOUL, (x + 0.5), (y + 0.5), (z + 0.5), 1, 0.32, 0.32, 0.32, 0);
-				if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE.get()) {
+				if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE.get()) {
 					{
 						BlockPos _bp = BlockPos.containing(x, y - 1, z);
-						BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+						BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 						BlockState _bso = world.getBlockState(_bp);
 						for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 							Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -139,17 +139,6 @@ public class GrimaceTrapFunctionProcedure {
 						}
 						world.setBlock(_bp, _bs, 3);
 					}
-					if (!world.isClientSide()) {
-						BlockPos _bp = BlockPos.containing(x, y - 1, z);
-						BlockEntity _blockEntity = world.getBlockEntity(_bp);
-						BlockState _bs = world.getBlockState(_bp);
-						if (_blockEntity != null)
-							_blockEntity.getPersistentData().putDouble("demoncharge", 64);
-						if (world instanceof Level _level)
-							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-					}
-				}
-				if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE.get()) {
 					if (!world.isClientSide()) {
 						BlockPos _bp = BlockPos.containing(x, y - 1, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -160,10 +149,21 @@ public class GrimaceTrapFunctionProcedure {
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE.get()) {
+				if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE.get()) {
+					if (!world.isClientSide()) {
+						BlockPos _bp = BlockPos.containing(x, y - 1, z);
+						BlockEntity _blockEntity = world.getBlockEntity(_bp);
+						BlockState _bs = world.getBlockState(_bp);
+						if (_blockEntity != null)
+							_blockEntity.getPersistentData().putDouble("demoncharge", 64);
+						if (world instanceof Level _level)
+							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+					}
+				}
+				if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE.get()) {
 					{
 						BlockPos _bp = BlockPos.containing(x + 1, y, z);
-						BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+						BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 						BlockState _bso = world.getBlockState(_bp);
 						for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 							Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -185,7 +185,7 @@ public class GrimaceTrapFunctionProcedure {
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE.get()) {
+				if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE.get()) {
 					if (!world.isClientSide()) {
 						BlockPos _bp = BlockPos.containing(x + 1, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -196,10 +196,10 @@ public class GrimaceTrapFunctionProcedure {
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
-				if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE.get()) {
+				if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE.get()) {
 					{
 						BlockPos _bp = BlockPos.containing(x - 1, y, z);
-						BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+						BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 						BlockState _bso = world.getBlockState(_bp);
 						for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 							Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -221,7 +221,7 @@ public class GrimaceTrapFunctionProcedure {
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
-				if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE.get()) {
+				if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE.get()) {
 					if (!world.isClientSide()) {
 						BlockPos _bp = BlockPos.containing(x - 1, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -232,10 +232,10 @@ public class GrimaceTrapFunctionProcedure {
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
-				if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE.get()) {
+				if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE.get()) {
 					{
 						BlockPos _bp = BlockPos.containing(x, y, z + 1);
-						BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+						BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 						BlockState _bso = world.getBlockState(_bp);
 						for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 							Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -257,7 +257,7 @@ public class GrimaceTrapFunctionProcedure {
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
-				if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE.get()) {
+				if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE.get()) {
 					if (!world.isClientSide()) {
 						BlockPos _bp = BlockPos.containing(x, y, z + 1);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -268,10 +268,10 @@ public class GrimaceTrapFunctionProcedure {
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
-				if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE.get()) {
+				if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE.get()) {
 					{
 						BlockPos _bp = BlockPos.containing(x, y, z - 1);
-						BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+						BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 						BlockState _bso = world.getBlockState(_bp);
 						for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 							Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -293,7 +293,7 @@ public class GrimaceTrapFunctionProcedure {
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
-				if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE.get()) {
+				if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() || (world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE.get()) {
 					if (!world.isClientSide()) {
 						BlockPos _bp = BlockPos.containing(x, y, z - 1);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);

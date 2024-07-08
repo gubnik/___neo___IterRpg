@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -58,7 +58,7 @@ public class DrillMineGeoditeProcedure {
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == IterRpgModBlocks.GEODITE.get()) {
+				if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == BlockRegistry.GEODITE.get()) {
 					if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.create(new ResourceLocation("forge:has_inventory_drill")))) {
 						if (world instanceof ServerLevel _level)
 							_level.getServer().getCommands().performPrefixedCommand(
@@ -70,7 +70,7 @@ public class DrillMineGeoditeProcedure {
 									new CommandSourceStack(CommandSource.NULL, new Vec3((x + 0.5), (y - 0.25), (z + 0.5)), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 									("loot spawn ~ ~ ~ loot iter_rpg:gameplay/" + "geode_stone"));
 					}
-				} else if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == IterRpgModBlocks.DEEPSLATE_GEODITE.get()) {
+				} else if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == BlockRegistry.DEEPSLATE_GEODITE.get()) {
 					if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.create(new ResourceLocation("forge:has_inventory_drill")))) {
 						if (world instanceof ServerLevel _level)
 							_level.getServer().getCommands().performPrefixedCommand(
@@ -82,7 +82,7 @@ public class DrillMineGeoditeProcedure {
 									new CommandSourceStack(CommandSource.NULL, new Vec3((x + 0.5), (y - 0.25), (z + 0.5)), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 									("loot spawn ~ ~ ~ loot iter_rpg:" + "geode_deepslate"));
 					}
-				} else if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == IterRpgModBlocks.NETHERRACK_GEODITE.get()) {
+				} else if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == BlockRegistry.NETHERRACK_GEODITE.get()) {
 					if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.create(new ResourceLocation("forge:has_inventory_drill")))) {
 						if (world instanceof ServerLevel _level)
 							_level.getServer().getCommands().performPrefixedCommand(
@@ -94,7 +94,7 @@ public class DrillMineGeoditeProcedure {
 									new CommandSourceStack(CommandSource.NULL, new Vec3((x + 0.5), (y - 0.25), (z + 0.5)), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 									("loot spawn ~ ~ ~ loot iter_rpg:" + "geode_netherrack"));
 					}
-				} else if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == IterRpgModBlocks.BLACKSTONE_GEODITE.get()) {
+				} else if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == BlockRegistry.BLACKSTONE_GEODITE.get()) {
 					if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.create(new ResourceLocation("forge:has_inventory_drill")))) {
 						if (world instanceof ServerLevel _level)
 							_level.getServer().getCommands().performPrefixedCommand(
@@ -106,7 +106,7 @@ public class DrillMineGeoditeProcedure {
 									new CommandSourceStack(CommandSource.NULL, new Vec3((x + 0.5), (y - 0.25), (z + 0.5)), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 									("loot spawn ~ ~ ~ loot iter_rpg:" + "geode_blackstone"));
 					}
-				} else if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == IterRpgModBlocks.ENDSTONE_GEODITE.get()) {
+				} else if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == BlockRegistry.ENDSTONE_GEODITE.get()) {
 					if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.create(new ResourceLocation("forge:has_inventory_drill")))) {
 						if (world instanceof ServerLevel _level)
 							_level.getServer().getCommands().performPrefixedCommand(

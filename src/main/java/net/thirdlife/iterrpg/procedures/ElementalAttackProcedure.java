@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 import net.thirdlife.iterrpg.init.IterRpgModParticleTypes;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -188,10 +188,10 @@ public class ElementalAttackProcedure {
 					_level.sendParticles(ParticleTypes.FLAME, (entity.getX()), (entity.getY() + entity.getBbHeight() / 2), (entity.getZ()), 6, (entity.getBbWidth() / 3), (entity.getBbHeight() / 3), (entity.getBbWidth() / 3), 0.05);
 			}
 			if (type == 5) {
-				if ((sourceentity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).MeleeAttackCooldown <= 0) {
+				if ((sourceentity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).MeleeAttackCooldown <= 0) {
 					{
 						double _setval = 13;
-						sourceentity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						sourceentity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 							capability.MeleeAttackCooldown = _setval;
 							capability.syncPlayerVariables(sourceentity);
 						});

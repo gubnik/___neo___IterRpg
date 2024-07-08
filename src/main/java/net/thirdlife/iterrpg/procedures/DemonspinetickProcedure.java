@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModParticleTypes;
-import net.thirdlife.iterrpg.entity.DemonspineEntity;
+import net.thirdlife.iterrpg.common.entity.DemonspineEntity;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;

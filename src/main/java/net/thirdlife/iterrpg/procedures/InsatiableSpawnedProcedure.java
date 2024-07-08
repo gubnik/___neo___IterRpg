@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.entity.InsatiableEntity;
+import net.thirdlife.iterrpg.common.entity.InsatiableEntity;
 import net.thirdlife.iterrpg.IterRpgMod;
 
 import net.minecraft.world.level.LevelAccessor;

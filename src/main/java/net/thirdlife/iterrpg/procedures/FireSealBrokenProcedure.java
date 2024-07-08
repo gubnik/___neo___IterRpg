@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 import net.thirdlife.iterrpg.init.IterRpgModParticleTypes;
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
 
@@ -20,9 +20,9 @@ public class FireSealBrokenProcedure {
 		double xof = 0;
 		double yof = 0;
 		double zof = 0;
-		if (!IterRpgModVariables.MapVariables.get(world).unlocked_fire) {
-			IterRpgModVariables.MapVariables.get(world).unlocked_fire = true;
-			IterRpgModVariables.MapVariables.get(world).syncData(world);
+		if (!GlobalVariables.MapVariables.get(world).unlocked_fire) {
+			GlobalVariables.MapVariables.get(world).unlocked_fire = true;
+			GlobalVariables.MapVariables.get(world).syncData(world);
 			for (int index0 = 0; index0 < 150; index0++) {
 				world.addParticle((SimpleParticleType) (IterRpgModParticleTypes.FIRE_SIGIL.get()), (x + 0.5), (y + 0.5), (z + 0.5), (Mth.nextDouble(RandomSource.create(), -0.5, 0.5)), (Mth.nextDouble(RandomSource.create(), -0.5, 0.5)),
 						(Mth.nextDouble(RandomSource.create(), -0.5, 0.5)));

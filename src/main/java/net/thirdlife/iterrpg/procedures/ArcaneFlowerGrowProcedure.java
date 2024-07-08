@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -38,7 +38,7 @@ public class ArcaneFlowerGrowProcedure {
 			if ((blockstate.getBlock().getStateDefinition().getProperty("stage") instanceof IntegerProperty _getip3 ? blockstate.getValue(_getip3) : -1) >= 2) {
 				{
 					BlockPos _bp = BlockPos.containing(x, y, z);
-					BlockState _bs = IterRpgModBlocks.ETHERBLOOM.get().defaultBlockState();
+					BlockState _bs = BlockRegistry.ETHERBLOOM.get().defaultBlockState();
 					BlockState _bso = world.getBlockState(_bp);
 					for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 						Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());

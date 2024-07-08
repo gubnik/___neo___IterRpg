@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -34,98 +34,98 @@ public class SpellCastBaseProcedure {
 		double mana = 0;
 		boolean valid = false;
 		boolean cast = false;
-		if (!(((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == ItemStack.EMPTY.getItem()) && !(entity instanceof Player _plrCldCheck2
-				&& _plrCldCheck2.getCooldowns().isOnCooldown(((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem()))) {
+		if (!(((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemStack.EMPTY.getItem()) && !(entity instanceof Player _plrCldCheck2
+				&& _plrCldCheck2.getCooldowns().isOnCooldown(((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem()))) {
 			valid = true;
 		}
 		if (valid) {
 			cast = false;
-			if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_ETHERBOLT.get()) {
+			if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_ETHERBOLT.get()) {
 				cooldown = 20 * WandReturnCooldownProcedure.execute(entity);
 				mana = 2 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					ArcaneBoltCastProcedure.execute(world, x, y, z, entity);
 				}
-			} else if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_HEAL.get()) {
+			} else if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_HEAL.get()) {
 				cooldown = 250 * WandReturnCooldownProcedure.execute(entity);
 				mana = 12 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					HealCastProcedure.execute(world, x, y, z, entity);
 				}
-			} else if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_ETHERBLAST.get()) {
+			} else if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_ETHERBLAST.get()) {
 				cooldown = 45 * WandReturnCooldownProcedure.execute(entity);
 				mana = 5 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					ArcaneBlastCastProcedure.execute(world, x, y, z, entity);
 				}
-			} else if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_IGNITE.get()) {
+			} else if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_IGNITE.get()) {
 				cooldown = 35 * WandReturnCooldownProcedure.execute(entity);
 				mana = 2 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					IgniteCastProcedure.execute(world, x, y, z, entity);
 				}
-			} else if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_GUST.get()) {
+			} else if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_GUST.get()) {
 				cooldown = 35 * WandReturnCooldownProcedure.execute(entity);
 				mana = 2 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					GustCastProcedure.execute(world, x, y, z, entity);
 				}
-			} else if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_SPLASHES.get()) {
+			} else if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_SPLASHES.get()) {
 				cooldown = 35 * WandReturnCooldownProcedure.execute(entity);
 				mana = 2 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					SplashesCastProcedure.execute(world, x, y, z, entity);
 				}
-			} else if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_ATTRACT.get()) {
+			} else if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_ATTRACT.get()) {
 				cooldown = 35 * WandReturnCooldownProcedure.execute(entity);
 				mana = 2 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					AttractCastProcedure.execute(world, x, y, z, entity);
 				}
-			} else if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_CULTIVATE.get()) {
+			} else if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_CULTIVATE.get()) {
 				cooldown = 115 * WandReturnCooldownProcedure.execute(entity);
 				mana = 8 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					CultivateCastProcedure.execute(world, x, y, z, entity);
 				}
-			} else if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_EMBERS.get()) {
+			} else if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_EMBERS.get()) {
 				cooldown = 25 * WandReturnCooldownProcedure.execute(entity);
 				mana = 2 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					EmbersCastProcedure.execute(world, x, y, z, entity);
 				}
 			}
-			if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_DROPLETS.get()) {
+			if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_DROPLETS.get()) {
 				cooldown = 10 * WandReturnCooldownProcedure.execute(entity);
 				mana = 1 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					DropletsCastProcedure.execute(world, x, y, z, entity);
 				}
 			}
-			if (((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem() == IterRpgModItems.SPELL_ZAP.get()) {
+			if (((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem() == ItemRegistry.SPELL_ZAP.get()) {
 				cooldown = 20 * WandReturnCooldownProcedure.execute(entity);
 				mana = 2 * WandReturnManaProcedure.execute(entity);
-				if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana >= mana) {
+				if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana >= mana) {
 					cast = true;
 					ZapCastProcedure.execute(world, entity);
 				}
 			}
 			if (cast) {
 				if (entity instanceof Player _player)
-					_player.getCooldowns().addCooldown(((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem).getItem(), (int) cooldown);
+					_player.getCooldowns().addCooldown(((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem).getItem(), (int) cooldown);
 				{
-					double _setval = (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana - mana;
-					entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					double _setval = (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana - mana;
+					entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.Mana = _setval;
 						capability.syncPlayerVariables(entity);
 					});

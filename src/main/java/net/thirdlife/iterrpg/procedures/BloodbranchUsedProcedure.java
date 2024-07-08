@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
-import net.thirdlife.iterrpg.entity.DemonbloodProjectileEntity;
+import net.thirdlife.iterrpg.common.entity.DemonbloodProjectileEntity;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;

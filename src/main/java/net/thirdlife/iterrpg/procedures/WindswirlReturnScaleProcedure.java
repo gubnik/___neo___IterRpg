@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.entity.WindswirlEntity;
+import net.thirdlife.iterrpg.common.entity.WindswirlEntity;
 
 import net.minecraft.world.entity.Entity;
 

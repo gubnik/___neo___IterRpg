@@ -2,7 +2,7 @@ package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModParticleTypes;
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
-import net.thirdlife.iterrpg.entity.ScabEntity;
+import net.thirdlife.iterrpg.common.entity.ScabEntity;
 
 import net.minecraftforge.registries.ForgeRegistries;
 

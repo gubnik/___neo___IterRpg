@@ -15,17 +15,17 @@ public class IterRpgModFuels {
 	@SubscribeEvent
 	public static void furnaceFuelBurnTimeEvent(FurnaceFuelBurnTimeEvent event) {
 		ItemStack itemstack = event.getItemStack();
-		if (itemstack.getItem() == IterRpgModBlocks.SACRED_LOG.get().asItem())
+		if (itemstack.getItem() == BlockRegistry.SACRED_LOG.get().asItem())
 			event.setBurnTime(300);
-		else if (itemstack.getItem() == IterRpgModBlocks.SACRED_WOOD.get().asItem())
+		else if (itemstack.getItem() == BlockRegistry.SACRED_WOOD.get().asItem())
 			event.setBurnTime(300);
-		else if (itemstack.getItem() == IterRpgModBlocks.SACRED_PLANKS.get().asItem())
+		else if (itemstack.getItem() == BlockRegistry.SACRED_PLANKS.get().asItem())
 			event.setBurnTime(300);
-		else if (itemstack.getItem() == IterRpgModBlocks.SACRED_LEAVES.get().asItem())
+		else if (itemstack.getItem() == BlockRegistry.SACRED_LEAVES.get().asItem())
 			event.setBurnTime(50);
-		else if (itemstack.getItem() == IterRpgModBlocks.STRIPPED_SACRED_LOG.get().asItem())
+		else if (itemstack.getItem() == BlockRegistry.STRIPPED_SACRED_LOG.get().asItem())
 			event.setBurnTime(300);
-		else if (itemstack.getItem() == IterRpgModItems.MAGMANUM_CHUNK.get())
+		else if (itemstack.getItem() == ItemRegistry.MAGMANUM_CHUNK.get())
 			event.setBurnTime(6400);
 	}
 }

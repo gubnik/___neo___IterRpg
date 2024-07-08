@@ -2,10 +2,10 @@ package net.thirdlife.iterrpg.procedures;
 
 import top.theillusivec4.curios.api.CuriosApi;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 import net.thirdlife.iterrpg.init.IterRpgModEnchantments;
-import net.thirdlife.iterrpg.init.IterRpgModAttributes;
+import net.thirdlife.iterrpg.init.AttributeRegistry;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -53,10 +53,10 @@ public class PlayerManaProcedure {
 				|| (entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("iter_rpg:spellcasting_focuses")))
 				|| (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("iter_rpg:magic_item")))
 				|| (entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("iter_rpg:magic_item")))
-				|| (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).ManaOverlay) {
+				|| (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).ManaOverlay) {
 			{
 				boolean _setval = true;
-				entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.MageStatus = _setval;
 					capability.syncPlayerVariables(entity);
 				});
@@ -72,7 +72,7 @@ public class PlayerManaProcedure {
 						});
 						return _retval.get();
 					}
-				}.getItemStack((int) slot, entity)).getItem() == IterRpgModItems.SPELL_BOOK.get())) {
+				}.getItemStack((int) slot, entity)).getItem() == ItemRegistry.SPELL_BOOK.get())) {
 					slot = slot + 1;
 				} else {
 					spellbook = (new Object() {
@@ -96,8 +96,8 @@ public class PlayerManaProcedure {
 							});
 							return _retval.get();
 						}
-					}.getItemStack((int) (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SelectedSpell, spellbook));
-					entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					}.getItemStack((int) (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SelectedSpell, spellbook));
+					entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.SpellItem = _setval;
 						capability.syncPlayerVariables(entity);
 					});
@@ -105,7 +105,7 @@ public class PlayerManaProcedure {
 			} else {
 				{
 					ItemStack _setval = ItemStack.EMPTY;
-					entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.SpellItem = _setval;
 						capability.syncPlayerVariables(entity);
 					});
@@ -114,37 +114,37 @@ public class PlayerManaProcedure {
 		} else {
 			{
 				boolean _setval = false;
-				entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.MageStatus = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
 		}
-		regen = ((LivingEntity) entity).getAttribute(IterRpgModAttributes.BASEMANAREGENERATION.get()).getValue();
-		capacity = ((LivingEntity) entity).getAttribute(IterRpgModAttributes.BASEMANACAPACITY.get()).getValue();
-		if (entity instanceof LivingEntity lv ? CuriosApi.getCuriosHelper().findEquippedCurio(IterRpgModItems.AMETRINE_PENDANT.get(), lv).isPresent() : false) {
+		regen = ((LivingEntity) entity).getAttribute(AttributeRegistry.BASE_MANA_REGENERATION.get()).getValue();
+		capacity = ((LivingEntity) entity).getAttribute(AttributeRegistry.BASE_MANA_CAPACITY.get()).getValue();
+		if (entity instanceof LivingEntity lv ? CuriosApi.getCuriosHelper().findEquippedCurio(ItemRegistry.AMETRINE_PENDANT.get(), lv).isPresent() : false) {
 			regen = regen + 0.025;
 		}
-		if (entity instanceof LivingEntity lv ? CuriosApi.getCuriosHelper().findEquippedCurio(IterRpgModItems.ABYSSQUARTZ_CAPACITATOR.get(), lv).isPresent() : false) {
+		if (entity instanceof LivingEntity lv ? CuriosApi.getCuriosHelper().findEquippedCurio(ItemRegistry.ABYSSQUARTZ_CAPACITATOR.get(), lv).isPresent() : false) {
 			capacity = capacity + 15;
 		}
-		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY).getItem() == IterRpgModItems.RAGGED_HELMET.get()) {
+		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY).getItem() == ItemRegistry.RAGGED_HELMET.get()) {
 			capacity = capacity + 10;
-		} else if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY).getItem() == IterRpgModItems.AMETRINE_HELMET.get()) {
+		} else if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY).getItem() == ItemRegistry.AMETRINE_HELMET.get()) {
 			capacity = capacity + 2.5;
 			regen = regen + 0.0025;
 		}
-		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY).getItem() == IterRpgModItems.RAGGED_CHESTPLATE.get()) {
+		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY).getItem() == ItemRegistry.RAGGED_CHESTPLATE.get()) {
 			regen = regen * 1.15;
-		} else if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY).getItem() == IterRpgModItems.AMETRINE_CHESTPLATE.get()) {
+		} else if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY).getItem() == ItemRegistry.AMETRINE_CHESTPLATE.get()) {
 			capacity = capacity + 2.5;
 			regen = regen + 0.0025;
 		}
-		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY).getItem() == IterRpgModItems.AMETRINE_LEGGINGS.get()) {
+		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY).getItem() == ItemRegistry.AMETRINE_LEGGINGS.get()) {
 			capacity = capacity + 2.5;
 			regen = regen + 0.0025;
 		}
-		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY).getItem() == IterRpgModItems.AMETRINE_BOOTS.get()) {
+		if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY).getItem() == ItemRegistry.AMETRINE_BOOTS.get()) {
 			capacity = capacity + 2.5;
 			regen = regen + 0.0025;
 		}
@@ -155,47 +155,47 @@ public class PlayerManaProcedure {
 		regen = regen + (entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY).getEnchantmentLevel(IterRpgModEnchantments.ARCANE_CONDUCTIVITY.get()) * 0.0025;
 		{
 			double _setval = capacity;
-			entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+			entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.MaxMana = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		regen = regen / 25;
-		if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana < (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IterRpgModVariables.PlayerVariables())).MaxMana) {
-			if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).MaxMana
-					- (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana <= regen) {
+		if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana < (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new GlobalVariables.PlayerVariables())).MaxMana) {
+			if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).MaxMana
+					- (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana <= regen) {
 				{
-					double _setval = (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).MaxMana;
-					entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					double _setval = (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).MaxMana;
+					entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.Mana = _setval;
 						capability.syncPlayerVariables(entity);
 					});
 				}
 			} else {
 				{
-					double _setval = (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana + regen;
-					entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					double _setval = (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana + regen;
+					entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.Mana = _setval;
 						capability.syncPlayerVariables(entity);
 					});
 				}
 			}
 		}
-		if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana > (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IterRpgModVariables.PlayerVariables())).MaxMana) {
+		if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana > (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new GlobalVariables.PlayerVariables())).MaxMana) {
 			{
-				double _setval = (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).MaxMana;
-				entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				double _setval = (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).MaxMana;
+				entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.Mana = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
 		}
-		if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).Mana < 0) {
+		if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).Mana < 0) {
 			{
 				double _setval = 0;
-				entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.Mana = _setval;
 					capability.syncPlayerVariables(entity);
 				});

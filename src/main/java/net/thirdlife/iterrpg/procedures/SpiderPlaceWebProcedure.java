@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
@@ -49,7 +49,7 @@ public class SpiderPlaceWebProcedure {
 					}
 					if (decideblock > 8 && decideblock <= 12) {
 						if (entity.getPersistentData().getDouble("cocooncharge") >= 8) {
-							world.setBlock(BlockPos.containing(x + xplace, y + yplace, z + zplace), IterRpgModBlocks.SPIDER_EGG.get().defaultBlockState(), 3);
+							world.setBlock(BlockPos.containing(x + xplace, y + yplace, z + zplace), BlockRegistry.SPIDER_EGG.get().defaultBlockState(), 3);
 							if (world instanceof ServerLevel _level)
 								_level.sendParticles(ParticleTypes.POOF, (x + xplace), (y + yplace), (z + zplace), 16, 0.3, 0.3, 0.3, 0.025);
 							entity.getPersistentData().putDouble("cocooncharge", (entity.getPersistentData().getDouble("cocooncharge") - 8));

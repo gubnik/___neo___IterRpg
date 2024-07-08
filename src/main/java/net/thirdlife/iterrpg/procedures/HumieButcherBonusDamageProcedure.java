@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.common.Mod;
@@ -46,7 +46,7 @@ public class HumieButcherBonusDamageProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity, double amount) {
 		if (entity == null || sourceentity == null)
 			return;
-		if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == IterRpgModItems.HUMIE_BUTCHER.get()
+		if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemRegistry.HUMIE_BUTCHER.get()
 				&& (entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:humanoid"))) || entity instanceof LivingEntity _livEnt3 && _livEnt3.getMobType() == MobType.ILLAGER || entity instanceof Zombie
 						|| entity instanceof ZombieVillager || entity instanceof Player || entity instanceof Villager)) {
 			if (world instanceof Level _level) {

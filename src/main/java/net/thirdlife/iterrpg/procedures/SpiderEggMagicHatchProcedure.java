@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModGameRules;
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 import net.thirdlife.iterrpg.IterRpgMod;
 
 import net.minecraft.world.phys.Vec3;
@@ -20,7 +20,7 @@ public class SpiderEggMagicHatchProcedure {
 			if (world instanceof ServerLevel _level)
 				_level.sendParticles(ParticleTypes.ENCHANT, (x + 0.5), (y + 1.5), (z + 0.5), 16, 0.3, 0.3, 0.3, 0);
 			IterRpgMod.queueServerWork(Mth.nextInt(RandomSource.create(), 20, 30), () -> {
-				if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == IterRpgModBlocks.SPIDER_EGG.get()) {
+				if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == BlockRegistry.SPIDER_EGG.get()) {
 					world.destroyBlock(BlockPos.containing(x, y, z), false);
 					CocoonExplodeProcedure.execute(world, x, y, z);
 				}

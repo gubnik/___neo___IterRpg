@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.client.gui;
 
-import net.thirdlife.iterrpg.world.inventory.CoinPouchGuiMenu;
+import net.thirdlife.iterrpg.common.world.inventory.CoinPouchGuiMenu;
 import net.thirdlife.iterrpg.procedures.CoinAmountReturnProcedure;
 
 import net.minecraft.world.level.Level;

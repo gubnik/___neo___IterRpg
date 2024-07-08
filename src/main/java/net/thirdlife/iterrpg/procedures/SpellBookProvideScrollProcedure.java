@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
@@ -29,8 +29,8 @@ public class SpellBookProvideScrollProcedure {
 					});
 					return _retval.get();
 				}
-			}.getItemStack((int) (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SelectedSpell, itemstack));
-			entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+			}.getItemStack((int) (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SelectedSpell, itemstack));
+			entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.SpellItem = _setval;
 				capability.syncPlayerVariables(entity);
 			});

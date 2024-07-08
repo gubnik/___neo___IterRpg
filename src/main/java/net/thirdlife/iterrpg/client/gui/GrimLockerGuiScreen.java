@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.client.gui;
 
-import net.thirdlife.iterrpg.world.inventory.GrimLockerGuiMenu;
+import net.thirdlife.iterrpg.common.world.inventory.GrimLockerGuiMenu;
 import net.thirdlife.iterrpg.procedures.GrimLockerArrow4Procedure;
 import net.thirdlife.iterrpg.procedures.GrimLockerArrow3Procedure;
 import net.thirdlife.iterrpg.procedures.GrimLockerArrow2Procedure;

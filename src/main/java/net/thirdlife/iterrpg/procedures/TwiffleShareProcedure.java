@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -20,7 +20,7 @@ public class TwiffleShareProcedure {
 		xpos = Mth.nextInt(RandomSource.create(), -1, 1);
 		zpos = Mth.nextInt(RandomSource.create(), -1, 1);
 		ypos = Mth.nextInt(RandomSource.create(), -1, 1);
-		if ((world.getBlockState(BlockPos.containing(x + xpos, y + ypos, z + zpos))).getBlock() == IterRpgModBlocks.TWIFFLE_BLOCK.get() && (new Object() {
+		if ((world.getBlockState(BlockPos.containing(x + xpos, y + ypos, z + zpos))).getBlock() == BlockRegistry.TWIFFLE_BLOCK.get() && (new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -84,7 +84,7 @@ public class TwiffleShareProcedure {
 			if (world instanceof ServerLevel _level)
 				_level.sendParticles(ParticleTypes.FALLING_WATER, (x + 0.5), (y + 0.5), (z + 0.5), 16, 0.4, 0.4, 0.4, 0.025);
 		}
-		if ((world.getBlockState(BlockPos.containing(x + xpos, y + ypos, z + zpos))).getBlock() == IterRpgModBlocks.TWIFFLE_BLOCK.get() && (new Object() {
+		if ((world.getBlockState(BlockPos.containing(x + xpos, y + ypos, z + zpos))).getBlock() == BlockRegistry.TWIFFLE_BLOCK.get() && (new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)

@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -33,7 +33,7 @@ public class TwiffleGrowProcedure {
 				return -1;
 			}
 		}.getValue(world, BlockPos.containing(x, y, z), "nutrients") > 32) {
-			if (world.isEmptyBlock(BlockPos.containing(x + xpos, y + ypos, z + zpos)) && IterRpgModBlocks.TWIFFLE.get().defaultBlockState().canSurvive(world, BlockPos.containing(x + xpos, y + ypos, z + zpos))) {
+			if (world.isEmptyBlock(BlockPos.containing(x + xpos, y + ypos, z + zpos)) && BlockRegistry.TWIFFLE.get().defaultBlockState().canSurvive(world, BlockPos.containing(x + xpos, y + ypos, z + zpos))) {
 				if (!world.isClientSide()) {
 					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -66,7 +66,7 @@ public class TwiffleGrowProcedure {
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
-				world.setBlock(BlockPos.containing(x + xpos, y + ypos, z + zpos), IterRpgModBlocks.TWIFFLE.get().defaultBlockState(), 3);
+				world.setBlock(BlockPos.containing(x + xpos, y + ypos, z + zpos), BlockRegistry.TWIFFLE.get().defaultBlockState(), 3);
 			}
 		}
 	}

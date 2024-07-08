@@ -1,8 +1,8 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
-import net.thirdlife.iterrpg.entity.FiendEntity;
+import net.thirdlife.iterrpg.init.ItemRegistry;
+import net.thirdlife.iterrpg.init.BlockRegistry;
+import net.thirdlife.iterrpg.common.entity.FiendEntity;
 
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.common.Mod;
@@ -47,10 +47,10 @@ public class FiendHitProcedure {
 			entity.getPersistentData().putBoolean("helmet_broken", true);
 			if (entity instanceof FiendEntity animatable)
 				animatable.setTexture("fiend");
-			world.levelEvent(2001, BlockPos.containing(entity.getX(), entity.getY() + 1, entity.getZ()), Block.getId(IterRpgModBlocks.DEMONBONES.get().defaultBlockState()));
+			world.levelEvent(2001, BlockPos.containing(entity.getX(), entity.getY() + 1, entity.getZ()), Block.getId(BlockRegistry.DEMONBONES.get().defaultBlockState()));
 			entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), 1);
 			if (world instanceof ServerLevel _level) {
-				ItemEntity entityToSpawn = new ItemEntity(_level, (entity.getX()), (entity.getY() + 1), (entity.getZ()), new ItemStack(IterRpgModItems.DEMONBONE_FRAGMENTS.get()));
+				ItemEntity entityToSpawn = new ItemEntity(_level, (entity.getX()), (entity.getY() + 1), (entity.getZ()), new ItemStack(ItemRegistry.DEMONBONE_FRAGMENTS.get()));
 				entityToSpawn.setPickUpDelay(10);
 				_level.addFreshEntity(entityToSpawn);
 			}

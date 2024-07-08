@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 import net.thirdlife.iterrpg.init.IterRpgModGameRules;
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
 
@@ -92,34 +92,34 @@ public class MobmorphTurnProcedure {
 				if (!entity.level().isClientSide())
 					entity.discard();
 			} else if ((entity.getPersistentData().getString("TurnInto")).equals("dungeon_sorrow_spire")) {
-				if (IterRpgModVariables.MapVariables.get(world).config_sorrow_spire) {
+				if (GlobalVariables.MapVariables.get(world).config_sorrow_spire) {
 					y_decide = 35;
 					SorrowSpirePrepareProcedure.execute(world, x, z);
 				}
 				if (!entity.level().isClientSide())
 					entity.discard();
 			} else if ((entity.getPersistentData().getString("TurnInto")).equals("dungeon_goblin")) {
-				if (IterRpgModVariables.MapVariables.get(world).config_goblin_camps) {
+				if (GlobalVariables.MapVariables.get(world).config_goblin_camps) {
 					GoblinDungeonPrepareProcedure.execute(world, x, y, z);
 				}
 				if (!entity.level().isClientSide())
 					entity.discard();
 			} else if ((entity.getPersistentData().getString("TurnInto")).equals("dungeon_spider")) {
-				if (IterRpgModVariables.MapVariables.get(world).config_spider_catacombs) {
+				if (GlobalVariables.MapVariables.get(world).config_spider_catacombs) {
 					y_decide = Mth.nextInt(RandomSource.create(), -40, 40);
 					ArthropodCatacombsPrepareProcedure.execute(world, x, y_decide, z);
 				}
 				if (!entity.level().isClientSide())
 					entity.discard();
 			} else if ((entity.getPersistentData().getString("TurnInto")).equals("dungeon_generic")) {
-				if (IterRpgModVariables.MapVariables.get(world).config_generic_dungeons) {
+				if (GlobalVariables.MapVariables.get(world).config_generic_dungeons) {
 					y_decide = Mth.nextInt(RandomSource.create(), -40, 40);
 					GenericDungeonPrepareProcedure.execute(world, x, y_decide, z);
 				}
 				if (!entity.level().isClientSide())
 					entity.discard();
 			} else if ((entity.getPersistentData().getString("TurnInto")).equals("shrine_earth")) {
-				if (IterRpgModVariables.MapVariables.get(world).config_elementals) {
+				if (GlobalVariables.MapVariables.get(world).config_elementals) {
 					y_decide = world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (int) x, (int) z);
 					if (world instanceof ServerLevel _serverworld) {
 						StructureTemplate template = _serverworld.getStructureManager().getOrCreate(new ResourceLocation("iter_rpg", "shrine_earth"));
@@ -132,7 +132,7 @@ public class MobmorphTurnProcedure {
 				if (!entity.level().isClientSide())
 					entity.discard();
 			} else if ((entity.getPersistentData().getString("TurnInto")).equals("shrine_water")) {
-				if (IterRpgModVariables.MapVariables.get(world).config_elementals) {
+				if (GlobalVariables.MapVariables.get(world).config_elementals) {
 					y_decide = world.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) x, (int) z);
 					if (world instanceof ServerLevel _serverworld) {
 						StructureTemplate template = _serverworld.getStructureManager().getOrCreate(new ResourceLocation("iter_rpg", "shrine_water"));
@@ -145,7 +145,7 @@ public class MobmorphTurnProcedure {
 				if (!entity.level().isClientSide())
 					entity.discard();
 			} else if ((entity.getPersistentData().getString("TurnInto")).equals("shrine_air")) {
-				if (IterRpgModVariables.MapVariables.get(world).config_elementals) {
+				if (GlobalVariables.MapVariables.get(world).config_elementals) {
 					y_decide = Mth.nextInt(RandomSource.create(), 220, 250);
 					if (world instanceof ServerLevel _serverworld) {
 						StructureTemplate template = _serverworld.getStructureManager().getOrCreate(new ResourceLocation("iter_rpg", "shrine_air"));
@@ -158,7 +158,7 @@ public class MobmorphTurnProcedure {
 				if (!entity.level().isClientSide())
 					entity.discard();
 			} else if ((entity.getPersistentData().getString("TurnInto")).equals("shrine_fire")) {
-				if (IterRpgModVariables.MapVariables.get(world).config_elementals) {
+				if (GlobalVariables.MapVariables.get(world).config_elementals) {
 					y_decide = 31;
 					if (world instanceof ServerLevel _serverworld) {
 						StructureTemplate template = _serverworld.getStructureManager().getOrCreate(new ResourceLocation("iter_rpg", "shrine_fire"));
@@ -171,7 +171,7 @@ public class MobmorphTurnProcedure {
 				if (!entity.level().isClientSide())
 					entity.discard();
 			} else if ((entity.getPersistentData().getString("TurnInto")).equals("shrine_void")) {
-				if (IterRpgModVariables.MapVariables.get(world).config_elementals) {
+				if (GlobalVariables.MapVariables.get(world).config_elementals) {
 					y_decide = Mth.nextInt(RandomSource.create(), 50, 170);
 					if (world instanceof ServerLevel _serverworld) {
 						StructureTemplate template = _serverworld.getStructureManager().getOrCreate(new ResourceLocation("iter_rpg", "shrine_void"));

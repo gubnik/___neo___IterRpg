@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.entity.EarthBoulderEntity;
+import net.thirdlife.iterrpg.common.entity.EarthBoulderEntity;
 
 import net.minecraftforge.registries.ForgeRegistries;
 

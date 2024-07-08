@@ -1,9 +1,9 @@
 package net.thirdlife.iterrpg.procedures;
 
+import net.thirdlife.iterrpg.init.ItemRegistry;
 import top.theillusivec4.curios.api.CuriosApi;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,18 +32,18 @@ public class CalibratedLensRegisterDealtProcedure {
 	private static void execute(@Nullable Event event, Entity entity, Entity sourceentity, double amount) {
 		if (entity == null || sourceentity == null)
 			return;
-		if (entity instanceof LivingEntity lv ? CuriosApi.getCuriosHelper().findEquippedCurio(IterRpgModItems.CALIBRATED_LENS.get(), lv).isPresent() : false && entity instanceof Player) {
+		if (entity instanceof LivingEntity lv ? CuriosApi.getCuriosHelper().findEquippedCurio(ItemRegistry.CALIBRATED_LENS.get(), lv).isPresent() : false && entity instanceof Player) {
 			{
 				double _setval = amount;
-				entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.LastDamageRecieved = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
-		} else if (sourceentity instanceof LivingEntity lv ? CuriosApi.getCuriosHelper().findEquippedCurio(IterRpgModItems.CALIBRATED_LENS.get(), lv).isPresent() : false && sourceentity instanceof Player) {
+		} else if (sourceentity instanceof LivingEntity lv ? CuriosApi.getCuriosHelper().findEquippedCurio(ItemRegistry.CALIBRATED_LENS.get(), lv).isPresent() : false && sourceentity instanceof Player) {
 			{
 				double _setval = amount;
-				sourceentity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				sourceentity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.LastDamageDealt = _setval;
 					capability.syncPlayerVariables(sourceentity);
 				});

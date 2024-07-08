@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,12 +18,12 @@ public class RunicGrimstoneActivateProcedure {
 		boolean wallmeet = false;
 		boolean up = false;
 		boolean down = false;
-		if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == IterRpgModBlocks.MAGMANUM_BLOCK.get() || (world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == IterRpgModBlocks.MAGMANUM_BLOCK.get()
-				|| (world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == IterRpgModBlocks.MAGMANUM_BLOCK.get() || (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == IterRpgModBlocks.MAGMANUM_BLOCK.get()
-				|| (world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == IterRpgModBlocks.MAGMANUM_BLOCK.get() || (world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == IterRpgModBlocks.MAGMANUM_BLOCK.get()) {
+		if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == BlockRegistry.MAGMANUM_BLOCK.get() || (world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == BlockRegistry.MAGMANUM_BLOCK.get()
+				|| (world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == BlockRegistry.MAGMANUM_BLOCK.get() || (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == BlockRegistry.MAGMANUM_BLOCK.get()
+				|| (world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == BlockRegistry.MAGMANUM_BLOCK.get() || (world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == BlockRegistry.MAGMANUM_BLOCK.get()) {
 			{
 				BlockPos _bp = BlockPos.containing(x, y, z);
-				BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+				BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -45,7 +45,7 @@ public class RunicGrimstoneActivateProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
+		if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -55,7 +55,7 @@ public class RunicGrimstoneActivateProcedure {
 		}.getValue(world, BlockPos.containing(x + 1, y, z), "demoncharge") > 1) {
 			{
 				BlockPos _bp = BlockPos.containing(x, y, z);
-				BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+				BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -84,7 +84,7 @@ public class RunicGrimstoneActivateProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
+		if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -94,7 +94,7 @@ public class RunicGrimstoneActivateProcedure {
 		}.getValue(world, BlockPos.containing(x - 1, y, z), "demoncharge") > 1) {
 			{
 				BlockPos _bp = BlockPos.containing(x, y, z);
-				BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+				BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -123,7 +123,7 @@ public class RunicGrimstoneActivateProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
+		if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -133,7 +133,7 @@ public class RunicGrimstoneActivateProcedure {
 		}.getValue(world, BlockPos.containing(x, y, z + 1), "demoncharge") > 1) {
 			{
 				BlockPos _bp = BlockPos.containing(x, y, z);
-				BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+				BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -162,7 +162,7 @@ public class RunicGrimstoneActivateProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
+		if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -172,7 +172,7 @@ public class RunicGrimstoneActivateProcedure {
 		}.getValue(world, BlockPos.containing(x, y, z - 1), "demoncharge") > 1) {
 			{
 				BlockPos _bp = BlockPos.containing(x, y, z);
-				BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+				BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -201,7 +201,7 @@ public class RunicGrimstoneActivateProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
+		if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -211,7 +211,7 @@ public class RunicGrimstoneActivateProcedure {
 		}.getValue(world, BlockPos.containing(x, y + 1, z), "demoncharge") > 1) {
 			{
 				BlockPos _bp = BlockPos.containing(x, y, z);
-				BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+				BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -240,7 +240,7 @@ public class RunicGrimstoneActivateProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
+		if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get() && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -250,7 +250,7 @@ public class RunicGrimstoneActivateProcedure {
 		}.getValue(world, BlockPos.containing(x, y - 1, z), "demoncharge") > 1) {
 			{
 				BlockPos _bp = BlockPos.containing(x, y, z);
-				BlockState _bs = IterRpgModBlocks.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
+				BlockState _bs = BlockRegistry.RUNIC_GRIMSTONE_ACTIVE.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());

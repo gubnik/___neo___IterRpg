@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.tags.ItemTags;
@@ -23,21 +23,21 @@ public class SpellbookReturn1Procedure {
 			spellname = "Empty";
 		}
 		if (valid) {
-			if (spell.getItem() == IterRpgModItems.SPELL_ETHERBOLT.get()) {
+			if (spell.getItem() == ItemRegistry.SPELL_ETHERBOLT.get()) {
 				spellname = Component.translatable("iterpg.spell.etherbolt").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_HEAL.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_HEAL.get()) {
 				spellname = Component.translatable("iterpg.spell.heal").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_IGNITE.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_IGNITE.get()) {
 				spellname = Component.translatable("iterpg.spell.ignite").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_GUST.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_GUST.get()) {
 				spellname = Component.translatable("iterpg.spell.gust").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_SPLASHES.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_SPLASHES.get()) {
 				spellname = Component.translatable("iterpg.spell.splashes").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_CULTIVATE.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_CULTIVATE.get()) {
 				spellname = Component.translatable("iterpg.spell.cultivate").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_ATTRACT.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_ATTRACT.get()) {
 				spellname = Component.translatable("iterpg.spell.attract").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_ETHERBLAST.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_ETHERBLAST.get()) {
 				spellname = Component.translatable("iterpg.spell.etherblast").getString();
 			}
 		}

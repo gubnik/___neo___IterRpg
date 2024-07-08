@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,7 +32,7 @@ public class CoinpileDestroyedProcedure {
 		}.checkGamemode(entity))) {
 			for (int index0 = 0; index0 < (int) (4 + (blockstate.getBlock().getStateDefinition().getProperty("stage") instanceof IntegerProperty _getip2 ? blockstate.getValue(_getip2) : -1)); index0++) {
 				if (world instanceof ServerLevel _level) {
-					ItemEntity entityToSpawn = new ItemEntity(_level, (x + 0.5), (y + 0.25), (z + 0.5), new ItemStack(IterRpgModItems.COIN.get()));
+					ItemEntity entityToSpawn = new ItemEntity(_level, (x + 0.5), (y + 0.25), (z + 0.5), new ItemStack(ItemRegistry.COIN.get()));
 					entityToSpawn.setPickUpDelay(Mth.nextInt(RandomSource.create(), 9, 11));
 					_level.addFreshEntity(entityToSpawn);
 				}

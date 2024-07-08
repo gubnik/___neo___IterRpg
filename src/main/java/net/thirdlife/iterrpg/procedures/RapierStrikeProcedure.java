@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -45,10 +45,10 @@ public class RapierStrikeProcedure {
 		boolean hit = false;
 		boolean particle = false;
 		if (((entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY).getItem() instanceof BlockItem _bi ? _bi.getBlock().defaultBlockState() : Blocks.AIR.defaultBlockState())
-				.is(BlockTags.create(new ResourceLocation("minecraft:small_flowers"))) && (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).MeleeAttackCooldown <= 0) {
+				.is(BlockTags.create(new ResourceLocation("minecraft:small_flowers"))) && (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).MeleeAttackCooldown <= 0) {
 			{
 				double _setval = 12;
-				entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.MeleeAttackCooldown = _setval;
 					capability.syncPlayerVariables(entity);
 				});

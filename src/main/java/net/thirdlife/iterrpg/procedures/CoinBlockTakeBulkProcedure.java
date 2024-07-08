@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraftforge.items.ItemHandlerHelper;
 
@@ -15,15 +15,15 @@ public class CoinBlockTakeBulkProcedure {
 			return;
 		double amount = 0;
 		for (int index0 = 0; index0 < 63; index0++) {
-			if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).PlayerCoinAmount > 31) {
+			if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).PlayerCoinAmount > 31) {
 				if (entity instanceof Player _player) {
-					ItemStack _setstack = new ItemStack(IterRpgModBlocks.COIN_BLOCK.get()).copy();
+					ItemStack _setstack = new ItemStack(BlockRegistry.COIN_BLOCK.get()).copy();
 					_setstack.setCount(1);
 					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 				}
 				{
-					double _setval = (entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).PlayerCoinAmount - 16;
-					entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					double _setval = (entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).PlayerCoinAmount - 16;
+					entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.PlayerCoinAmount = _setval;
 						capability.syncPlayerVariables(entity);
 					});

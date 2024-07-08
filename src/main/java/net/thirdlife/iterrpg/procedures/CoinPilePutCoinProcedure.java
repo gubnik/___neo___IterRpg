@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.ItemRegistry;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -41,8 +41,8 @@ public class CoinPilePutCoinProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, BlockState blockstate, Entity entity) {
 		if (entity == null)
 			return;
-		if (blockstate.getBlock() == IterRpgModBlocks.COIN_PILE.get()) {
-			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == IterRpgModItems.COIN.get()
+		if (blockstate.getBlock() == BlockRegistry.COIN_PILE.get()) {
+			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemRegistry.COIN.get()
 					&& (blockstate.getBlock().getStateDefinition().getProperty("stage") instanceof IntegerProperty _getip5 ? blockstate.getValue(_getip5) : -1) < 6) {
 				if (entity instanceof LivingEntity _entity)
 					_entity.swing(InteractionHand.MAIN_HAND, true);
@@ -76,7 +76,7 @@ public class CoinPilePutCoinProcedure {
 						world.setBlock(_pos, _bs.setValue(_integerProp, _value), 3);
 				}
 				if (world instanceof ServerLevel _level) {
-					ItemEntity entityToSpawn = new ItemEntity(_level, (x + 0.5), (y + 0.5), (z + 0.5), new ItemStack(IterRpgModItems.COIN.get()));
+					ItemEntity entityToSpawn = new ItemEntity(_level, (x + 0.5), (y + 0.5), (z + 0.5), new ItemStack(ItemRegistry.COIN.get()));
 					entityToSpawn.setPickUpDelay(5);
 					_level.addFreshEntity(entityToSpawn);
 				}

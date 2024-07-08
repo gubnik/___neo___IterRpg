@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModParticleTypes;
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -47,7 +47,7 @@ public class CoinTimerTickProcedure {
 						.toList();
 				for (Entity entityiterator : _entfound) {
 					if (entityiterator instanceof ItemEntity) {
-						if ((entityiterator instanceof ItemEntity _itemEnt ? _itemEnt.getItem() : ItemStack.EMPTY).getItem() == IterRpgModItems.COIN.get()) {
+						if ((entityiterator instanceof ItemEntity _itemEnt ? _itemEnt.getItem() : ItemStack.EMPTY).getItem() == ItemRegistry.COIN.get()) {
 							if (world instanceof ServerLevel _level)
 								_level.sendParticles((SimpleParticleType) (IterRpgModParticleTypes.COIN_PARTICLE.get()), (entityiterator.getX()), (entityiterator.getY()), (entityiterator.getZ()), 8, 0, 0, 0, 0.25);
 							(entityiterator instanceof ItemEntity _itemEnt ? _itemEnt.getItem() : ItemStack.EMPTY).shrink(1);

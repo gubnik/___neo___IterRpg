@@ -1,11 +1,11 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
-import net.thirdlife.iterrpg.entity.ScallopEntity;
-import net.thirdlife.iterrpg.entity.InsatiableEntity;
-import net.thirdlife.iterrpg.entity.DropletProjectileProjectileEntity;
-import net.thirdlife.iterrpg.entity.CaltropThrownEntity;
-import net.thirdlife.iterrpg.entity.BloatedEntity;
+import net.thirdlife.iterrpg.common.entity.ScallopEntity;
+import net.thirdlife.iterrpg.common.entity.InsatiableEntity;
+import net.thirdlife.iterrpg.common.entity.DropletProjectileProjectileEntity;
+import net.thirdlife.iterrpg.common.entity.CaltropThrownEntity;
+import net.thirdlife.iterrpg.common.entity.BloatedEntity;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;

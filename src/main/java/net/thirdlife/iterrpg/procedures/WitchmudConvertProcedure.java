@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.fml.common.Mod;
@@ -45,7 +45,7 @@ public class WitchmudConvertProcedure {
 						|| ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().getString("Potion")).equals("minecraft:thick")
 						|| ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().getString("Potion")).equals("minecraft:mundane"))
 				&& ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.DIRT || (world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.MUD)) {
-			world.setBlock(BlockPos.containing(x, y, z), IterRpgModBlocks.WITCHMUD.get().defaultBlockState(), 3);
+			world.setBlock(BlockPos.containing(x, y, z), BlockRegistry.WITCHMUD.get().defaultBlockState(), 3);
 			if (world instanceof ServerLevel _level)
 				_level.sendParticles(ParticleTypes.ENTITY_EFFECT, (x + 0.5), (y + 0.5), (z + 0.5), 16, 0.25, 0.25, 0.25, 0.025);
 			if (!(new Object() {

@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.ComposterBlock;
 public class IterRpgModCompostableItems {
 	@SubscribeEvent
 	public static void addComposterItems(FMLCommonSetupEvent event) {
-		ComposterBlock.COMPOSTABLES.put(IterRpgModItems.TWIFFLE_LUMP.get(), 0.8f);
-		ComposterBlock.COMPOSTABLES.put(IterRpgModItems.PROFANE_FLESH.get(), 1f);
+		ComposterBlock.COMPOSTABLES.put(ItemRegistry.TWIFFLE_LUMP.get(), 0.8f);
+		ComposterBlock.COMPOSTABLES.put(ItemRegistry.PROFANE_FLESH.get(), 1f);
 	}
 }

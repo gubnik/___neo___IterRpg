@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -24,7 +24,7 @@ public class AbyssQuartzGrowProcedure {
 					&& (world instanceof Level _lvl ? _lvl.dimension() : Level.OVERWORLD) == Level.OVERWORLD && y <= -58) {
 				direct = Direction.getRandom(RandomSource.create());
 				if (world.isEmptyBlock(BlockPos.containing(x + direct.getStepX(), y + direct.getStepY(), z + direct.getStepZ()))) {
-					world.setBlock(BlockPos.containing(x + direct.getStepX(), y + direct.getStepY(), z + direct.getStepZ()), IterRpgModBlocks.ABYSS_QUARTZ.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + direct.getStepX(), y + direct.getStepY(), z + direct.getStepZ()), BlockRegistry.ABYSS_QUARTZ.get().defaultBlockState(), 3);
 					{
 						Direction _dir = direct;
 						BlockPos _pos = BlockPos.containing(x + direct.getStepX(), y + direct.getStepY(), z + direct.getStepZ());

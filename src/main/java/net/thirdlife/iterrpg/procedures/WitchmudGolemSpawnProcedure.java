@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -34,14 +34,14 @@ public class WitchmudGolemSpawnProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, BlockState blockstate, Entity entity) {
 		if (entity == null)
 			return;
-		if (blockstate.getBlock() == IterRpgModBlocks.CATTAIL.get() && (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == IterRpgModBlocks.WITCHMUD.get()) {
+		if (blockstate.getBlock() == BlockRegistry.CATTAIL.get() && (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == BlockRegistry.WITCHMUD.get()) {
 			{
 				BlockPos _pos = BlockPos.containing(x, y, z);
 				Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, -69, z), null);
 				world.destroyBlock(_pos, false);
 			}
-			world.levelEvent(2001, BlockPos.containing(x, y, z), Block.getId(IterRpgModBlocks.CATTAIL.get().defaultBlockState()));
-			world.levelEvent(2001, BlockPos.containing(x, y + 1, z), Block.getId(IterRpgModBlocks.CATTAIL.get().defaultBlockState()));
+			world.levelEvent(2001, BlockPos.containing(x, y, z), Block.getId(BlockRegistry.CATTAIL.get().defaultBlockState()));
+			world.levelEvent(2001, BlockPos.containing(x, y + 1, z), Block.getId(BlockRegistry.CATTAIL.get().defaultBlockState()));
 			world.destroyBlock(BlockPos.containing(x, y - 1, z), false);
 			if (world instanceof ServerLevel _serverLevel) {
 				Entity entitytospawn = IterRpgModEntities.MUDKIN.get().spawn(_serverLevel, BlockPos.containing((x + 0.5), (y - 0.5), (z + 0.5)), MobSpawnType.MOB_SUMMONED);

@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
-import net.thirdlife.iterrpg.entity.ScallopEntity;
+import net.thirdlife.iterrpg.init.ItemRegistry;
+import net.thirdlife.iterrpg.common.entity.ScallopEntity;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
@@ -20,7 +20,7 @@ public class ScallopPearlSnatchProcedure {
 			if (entity instanceof ScallopEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(ScallopEntity.DATA_has_pearl, false);
 			if (world instanceof ServerLevel _level) {
-				ItemEntity entityToSpawn = new ItemEntity(_level, (entity.getX()), (entity.getY()), (entity.getZ()), new ItemStack(IterRpgModItems.PEARL.get()));
+				ItemEntity entityToSpawn = new ItemEntity(_level, (entity.getX()), (entity.getY()), (entity.getZ()), new ItemStack(ItemRegistry.PEARL.get()));
 				entityToSpawn.setPickUpDelay(10);
 				_level.addFreshEntity(entityToSpawn);
 			}

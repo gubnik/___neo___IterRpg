@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -33,7 +33,7 @@ public class ArcanistTableFunctionProcedure {
 		resource2 = (entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(2)).getItem() : ItemStack.EMPTY);
 		resource3 = (entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(3)).getItem() : ItemStack.EMPTY);
 		if (output.getItem() == ItemStack.EMPTY.getItem()) {
-			if (initial.getItem() == IterRpgModItems.UNIDENTIFIED_SPELL.get() && resource1.getItem() == Items.PAPER && resource2.getItem() == Items.INK_SAC && resource3.getItem() == ItemStack.EMPTY.getItem()) {
+			if (initial.getItem() == ItemRegistry.UNIDENTIFIED_SPELL.get() && resource1.getItem() == Items.PAPER && resource2.getItem() == Items.INK_SAC && resource3.getItem() == ItemStack.EMPTY.getItem()) {
 				if ((entity instanceof Player _plr ? _plr.experienceLevel : 0) >= 5) {
 					if (entity instanceof Player _player)
 						_player.giveExperienceLevels(-(5));
@@ -62,7 +62,7 @@ public class ArcanistTableFunctionProcedure {
 					}
 				}
 			}
-			if (initial.is(ItemTags.create(new ResourceLocation("iter_rpg:spell_scrolls"))) && resource1.getItem() == Items.PAPER && resource2.getItem() == Items.INK_SAC && resource3.getItem() == IterRpgModItems.GIST.get()
+			if (initial.is(ItemTags.create(new ResourceLocation("iter_rpg:spell_scrolls"))) && resource1.getItem() == Items.PAPER && resource2.getItem() == Items.INK_SAC && resource3.getItem() == ItemRegistry.GIST.get()
 					&& resource3.getCount() >= 5) {
 				if ((entity instanceof Player _plr ? _plr.experienceLevel : 0) >= 5) {
 					if (entity instanceof Player _player)

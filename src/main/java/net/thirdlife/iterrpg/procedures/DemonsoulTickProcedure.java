@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModParticleTypes;
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
+import net.thirdlife.iterrpg.init.BlockRegistry;
 
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
@@ -32,7 +32,7 @@ public class DemonsoulTickProcedure {
 				ypos = Mth.nextInt(RandomSource.create(), -6, 6);
 				zpos = Mth.nextInt(RandomSource.create(), -6, 6);
 				if ((world.getBlockState(BlockPos.containing(x + xpos, y + ypos, z + zpos))).getBlock() == Blocks.NETHERRACK) {
-					world.setBlock(BlockPos.containing(x + xpos, y + ypos, z + zpos), IterRpgModBlocks.MAGMANUM_ORE.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + xpos, y + ypos, z + zpos), BlockRegistry.MAGMANUM_ORE.get().defaultBlockState(), 3);
 				}
 			}
 			if (!entity.level().isClientSide())

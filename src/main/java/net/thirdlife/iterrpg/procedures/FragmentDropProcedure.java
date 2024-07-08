@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -50,33 +50,33 @@ public class FragmentDropProcedure {
 				luck = Mth.nextInt(RandomSource.create(), 1, 7500);
 				base = 5 + (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) * 2.5;
 				if (base >= luck) {
-					if (IterRpgModVariables.MapVariables.get(world).unlocked_earth && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:earth_entities")))) {
+					if (GlobalVariables.MapVariables.get(world).unlocked_earth && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:earth_entities")))) {
 						if (world instanceof ServerLevel _level) {
-							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.EARTH_FRAGMENT.get()));
+							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.EARTH_FRAGMENT.get()));
 							entityToSpawn.setPickUpDelay(10);
 							_level.addFreshEntity(entityToSpawn);
 						}
-					} else if (IterRpgModVariables.MapVariables.get(world).unlocked_water && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:water_entities")))) {
+					} else if (GlobalVariables.MapVariables.get(world).unlocked_water && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:water_entities")))) {
 						if (world instanceof ServerLevel _level) {
-							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.WATER_FRAGMENT.get()));
+							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.WATER_FRAGMENT.get()));
 							entityToSpawn.setPickUpDelay(10);
 							_level.addFreshEntity(entityToSpawn);
 						}
-					} else if (IterRpgModVariables.MapVariables.get(world).unlocked_air && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:air_entities")))) {
+					} else if (GlobalVariables.MapVariables.get(world).unlocked_air && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:air_entities")))) {
 						if (world instanceof ServerLevel _level) {
-							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.AIR_FRAGMENT.get()));
+							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.AIR_FRAGMENT.get()));
 							entityToSpawn.setPickUpDelay(10);
 							_level.addFreshEntity(entityToSpawn);
 						}
-					} else if (IterRpgModVariables.MapVariables.get(world).unlocked_fire && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:fire_entities")))) {
+					} else if (GlobalVariables.MapVariables.get(world).unlocked_fire && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:fire_entities")))) {
 						if (world instanceof ServerLevel _level) {
-							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.FIRE_FRAGMENT.get()));
+							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.FIRE_FRAGMENT.get()));
 							entityToSpawn.setPickUpDelay(10);
 							_level.addFreshEntity(entityToSpawn);
 						}
-					} else if (IterRpgModVariables.MapVariables.get(world).unlocked_void && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:void_entities")))) {
+					} else if (GlobalVariables.MapVariables.get(world).unlocked_void && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:void_entities")))) {
 						if (world instanceof ServerLevel _level) {
-							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.VOID_FRAGMENT.get()));
+							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.VOID_FRAGMENT.get()));
 							entityToSpawn.setPickUpDelay(10);
 							_level.addFreshEntity(entityToSpawn);
 						}

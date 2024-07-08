@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -44,19 +44,19 @@ public class CoinDropProcedure {
 		if (sourceentity instanceof Player) {
 			if (world.getLevelData().getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT) && entity instanceof Monster) {
 				{
-					double _setval = (sourceentity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).DropLuck
+					double _setval = (sourceentity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).DropLuck
 							+ (5 + (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1)) * 0.1;
-					sourceentity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					sourceentity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.DropLuck = _setval;
 						capability.syncPlayerVariables(sourceentity);
 					});
 				}
-				if ((sourceentity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).DropLuck - 10 >= Mth.nextInt(RandomSource.create(), 1, 50000)) {
+				if ((sourceentity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).DropLuck - 10 >= Mth.nextInt(RandomSource.create(), 1, 50000)) {
 					amount = Mth.nextInt(RandomSource.create(), 1, 20);
 					if (amount >= 18) {
 						for (int index0 = 0; index0 < 3; index0++) {
 							if (world instanceof ServerLevel _level) {
-								ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.COIN.get()));
+								ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.COIN.get()));
 								entityToSpawn.setPickUpDelay(10);
 								_level.addFreshEntity(entityToSpawn);
 							}
@@ -64,21 +64,21 @@ public class CoinDropProcedure {
 					} else if (amount >= 14) {
 						for (int index1 = 0; index1 < 2; index1++) {
 							if (world instanceof ServerLevel _level) {
-								ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.COIN.get()));
+								ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.COIN.get()));
 								entityToSpawn.setPickUpDelay(10);
 								_level.addFreshEntity(entityToSpawn);
 							}
 						}
 					} else {
 						if (world instanceof ServerLevel _level) {
-							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.COIN.get()));
+							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.COIN.get()));
 							entityToSpawn.setPickUpDelay(10);
 							_level.addFreshEntity(entityToSpawn);
 						}
 					}
 					{
 						double _setval = 0;
-						sourceentity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						sourceentity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 							capability.DropLuck = _setval;
 							capability.syncPlayerVariables(sourceentity);
 						});

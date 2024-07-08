@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -136,7 +136,7 @@ public class GrimLockerTickProcedure {
 						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, BlockPos.containing(x, y, z), "tears") == 0 && fuel.getItem() == IterRpgModItems.BOTTLE_OF_OBSIDIAN_TEARS.get() && new Object() {
+			}.getValue(world, BlockPos.containing(x, y, z), "tears") == 0 && fuel.getItem() == ItemRegistry.BOTTLE_OF_OBSIDIAN_TEARS.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);

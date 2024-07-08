@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 import net.thirdlife.iterrpg.init.IterRpgModParticleTypes;
 
 import net.minecraft.world.phys.Vec3;
@@ -54,7 +54,7 @@ public class EndArmorSetBonusProcedure {
 		}
 		if (world instanceof ServerLevel _level)
 			_level.sendParticles((SimpleParticleType) (IterRpgModParticleTypes.VOID_EYE_PARTICLE.get()), x, (y + offset), z, 1, 0, 0, 0, 0);
-		if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).ElementalArmorCooldown <= 1) {
+		if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).ElementalArmorCooldown <= 1) {
 			amount = 0;
 			{
 				final Vec3 _center = new Vec3(x, y, z);
@@ -65,7 +65,7 @@ public class EndArmorSetBonusProcedure {
 						amount = amount + 1;
 						{
 							double _setval = 65;
-							entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 								capability.ElementalArmorCooldown = _setval;
 								capability.syncPlayerVariables(entity);
 							});

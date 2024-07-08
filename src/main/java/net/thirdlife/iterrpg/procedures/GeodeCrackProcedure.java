@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -36,23 +36,23 @@ public class GeodeCrackProcedure {
 				|| (entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY).getItem() instanceof PickaxeItem) {
 			if (entity instanceof Player _player)
 				_player.getCooldowns().addCooldown(itemstack.getItem(), 2);
-			if (itemstack.getItem() == IterRpgModItems.STONE_GEODE.get()) {
+			if (itemstack.getItem() == ItemRegistry.STONE_GEODE.get()) {
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 							"loot spawn ~ ~0.5 ~ loot iter_rpg:gameplay/geode_stone");
-			} else if (itemstack.getItem() == IterRpgModItems.DEEPSLATE_GEODE.get()) {
+			} else if (itemstack.getItem() == ItemRegistry.DEEPSLATE_GEODE.get()) {
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 							"loot spawn ~ ~0.5 ~ loot iter_rpg:geode_deepslate");
-			} else if (itemstack.getItem() == IterRpgModItems.NETHERRACK_GEODE.get()) {
+			} else if (itemstack.getItem() == ItemRegistry.NETHERRACK_GEODE.get()) {
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 							"loot spawn ~ ~0.5 ~ loot iter_rpg:geode_netherrack");
-			} else if (itemstack.getItem() == IterRpgModItems.BLACKSTONE_GEODE.get()) {
+			} else if (itemstack.getItem() == ItemRegistry.BLACKSTONE_GEODE.get()) {
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 							"loot spawn ~ ~0.5 ~ loot iter_rpg:geode_blackstone");
-			} else if (itemstack.getItem() == IterRpgModItems.ENDSTONE_GEODE.get()) {
+			} else if (itemstack.getItem() == ItemRegistry.ENDSTONE_GEODE.get()) {
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 							"loot spawn ~ ~0.5 ~ loot iter_rpg:geode_endstone");

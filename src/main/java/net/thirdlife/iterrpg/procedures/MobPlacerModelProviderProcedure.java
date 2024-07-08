@@ -1,18 +1,18 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
-import net.thirdlife.iterrpg.entity.WeeperEntity;
-import net.thirdlife.iterrpg.entity.WaterElementalEntity;
-import net.thirdlife.iterrpg.entity.VoidElementalEntity;
-import net.thirdlife.iterrpg.entity.SpiderlingEntity;
-import net.thirdlife.iterrpg.entity.MournstoneEntity;
-import net.thirdlife.iterrpg.entity.HobgoblinEntity;
-import net.thirdlife.iterrpg.entity.GrieverEntity;
-import net.thirdlife.iterrpg.entity.GoblinWarriorEntity;
-import net.thirdlife.iterrpg.entity.GoblinEntity;
-import net.thirdlife.iterrpg.entity.FireElementalEntity;
-import net.thirdlife.iterrpg.entity.EarthElementalEntity;
-import net.thirdlife.iterrpg.entity.AirElementalEntity;
+import net.thirdlife.iterrpg.common.entity.WeeperEntity;
+import net.thirdlife.iterrpg.common.entity.WaterElementalEntity;
+import net.thirdlife.iterrpg.common.entity.VoidElementalEntity;
+import net.thirdlife.iterrpg.common.entity.SpiderlingEntity;
+import net.thirdlife.iterrpg.common.entity.MournstoneEntity;
+import net.thirdlife.iterrpg.common.entity.HobgoblinEntity;
+import net.thirdlife.iterrpg.common.entity.GrieverEntity;
+import net.thirdlife.iterrpg.common.entity.GoblinWarriorEntity;
+import net.thirdlife.iterrpg.common.entity.GoblinEntity;
+import net.thirdlife.iterrpg.common.entity.FireElementalEntity;
+import net.thirdlife.iterrpg.common.entity.EarthElementalEntity;
+import net.thirdlife.iterrpg.common.entity.AirElementalEntity;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;

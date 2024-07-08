@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
@@ -21,36 +21,36 @@ public class ReturnSpellNumberProcedure {
 		double cooldown = 0;
 		double slot = 0;
 		String spellname = "";
-		spell = ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SpellItem);
+		spell = ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SpellItem);
 		if (spell.is(ItemTags.create(new ResourceLocation("iter_rpg:spell_scrolls")))) {
 			valid = true;
 		} else {
 			spellname = "Empty";
 		}
 		if (valid) {
-			if (spell.getItem() == IterRpgModItems.SPELL_ETHERBOLT.get()) {
+			if (spell.getItem() == ItemRegistry.SPELL_ETHERBOLT.get()) {
 				spellname = Component.translatable("iterpg.spell.etherbolt").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_HEAL.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_HEAL.get()) {
 				spellname = Component.translatable("iterpg.spell.heal").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_IGNITE.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_IGNITE.get()) {
 				spellname = Component.translatable("iterpg.spell.ignite").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_GUST.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_GUST.get()) {
 				spellname = Component.translatable("iterpg.spell.gust").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_SPLASHES.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_SPLASHES.get()) {
 				spellname = Component.translatable("iterpg.spell.splashes").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_CULTIVATE.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_CULTIVATE.get()) {
 				spellname = Component.translatable("iterpg.spell.cultivate").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_ATTRACT.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_ATTRACT.get()) {
 				spellname = Component.translatable("iterpg.spell.attract").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_ETHERBLAST.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_ETHERBLAST.get()) {
 				spellname = Component.translatable("iterpg.spell.etherblast").getString();
-			} else if (spell.getItem() == IterRpgModItems.SPELL_EMBERS.get()) {
+			} else if (spell.getItem() == ItemRegistry.SPELL_EMBERS.get()) {
 				spellname = Component.translatable("iterpg.spell.embers").getString();
 			}
-			if (spell.getItem() == IterRpgModItems.SPELL_DROPLETS.get()) {
+			if (spell.getItem() == ItemRegistry.SPELL_DROPLETS.get()) {
 				spellname = Component.translatable("iterpg.spell.droplets").getString();
 			}
-			if (spell.getItem() == IterRpgModItems.SPELL_ZAP.get()) {
+			if (spell.getItem() == ItemRegistry.SPELL_ZAP.get()) {
 				spellname = Component.translatable("iterpg.spell.zap").getString();
 			}
 		}
@@ -58,9 +58,9 @@ public class ReturnSpellNumberProcedure {
 			spellname = spellname + "*";
 		}
 		if (entity instanceof Player _plrCldCheck24 && _plrCldCheck24.getCooldowns().isOnCooldown(spell.getItem())) {
-			return Math.round((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SelectedSpell) + ": " + spellname
+			return Math.round((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SelectedSpell) + ": " + spellname
 					+ (" [" + Math.round(entity instanceof Player _plrCldRem25 ? _plrCldRem25.getCooldowns().getCooldownPercent(spell.getItem(), 0f) * 100 : 0) + "]");
 		}
-		return Math.round((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).SelectedSpell) + ": " + spellname;
+		return Math.round((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).SelectedSpell) + ": " + spellname;
 	}
 }

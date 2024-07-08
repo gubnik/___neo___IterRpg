@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
+import net.thirdlife.iterrpg.init.ItemRegistry;
 
 import net.minecraft.world.item.ItemStack;
 
@@ -9,7 +9,7 @@ public class GrimLockerFuelProcedure {
 		ItemStack item = ItemStack.EMPTY;
 		ItemStack fuel = ItemStack.EMPTY;
 		ItemStack bottle = ItemStack.EMPTY;
-		if (itemstack.getItem() == IterRpgModItems.BOTTLE_OF_OBSIDIAN_TEARS.get()) {
+		if (itemstack.getItem() == ItemRegistry.BOTTLE_OF_OBSIDIAN_TEARS.get()) {
 			return false;
 		}
 		return true;

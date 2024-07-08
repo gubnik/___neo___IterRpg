@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
 import net.thirdlife.iterrpg.init.IterRpgModEntities;
-import net.thirdlife.iterrpg.entity.JavelinProjectileEntity;
+import net.thirdlife.iterrpg.common.entity.JavelinProjectileEntity;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.GameType;

@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModBlocks;
-import net.thirdlife.iterrpg.entity.GrimaceEntity;
+import net.thirdlife.iterrpg.init.BlockRegistry;
+import net.thirdlife.iterrpg.common.entity.GrimaceEntity;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -56,7 +56,7 @@ public class GrimaceSpawnProcedure {
 						sz = -3;
 						for (int index2 = 0; index2 < 6; index2++) {
 							if (!found) {
-								if ((world.getBlockState(BlockPos.containing(Math.round(entity.getX()) + sx, Math.round(entity.getY()) + sy, Math.round(entity.getZ()) + sz))).getBlock() == IterRpgModBlocks.GRIMACE_TRAP.get()) {
+								if ((world.getBlockState(BlockPos.containing(Math.round(entity.getX()) + sx, Math.round(entity.getY()) + sy, Math.round(entity.getZ()) + sz))).getBlock() == BlockRegistry.GRIMACE_TRAP.get()) {
 									entity.getPersistentData().putDouble("xlatch", (Math.round(entity.getX()) + sx + 0.5));
 									entity.getPersistentData().putDouble("ylatch", (Math.round(entity.getY()) + sy + 0.95));
 									entity.getPersistentData().putDouble("zlatch", (Math.round(entity.getZ()) + sz + 0.5));

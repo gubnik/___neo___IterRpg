@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.entity.FireElementalEntity;
+import net.thirdlife.iterrpg.common.entity.FireElementalEntity;
 
 import net.minecraftforge.registries.ForgeRegistries;
 

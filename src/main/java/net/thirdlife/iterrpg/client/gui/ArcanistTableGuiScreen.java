@@ -1,12 +1,12 @@
 package net.thirdlife.iterrpg.client.gui;
 
-import net.thirdlife.iterrpg.world.inventory.ArcanistTableGuiMenu;
+import net.thirdlife.iterrpg.common.world.inventory.ArcanistTableGuiMenu;
 import net.thirdlife.iterrpg.procedures.SpellCopyConditionProcedure;
 import net.thirdlife.iterrpg.procedures.Scroll1ConditionProcedure;
 import net.thirdlife.iterrpg.procedures.PaperinkConditionProcedure;
 import net.thirdlife.iterrpg.procedures.ArcanistTableButtonConditionReverseProcedure;
 import net.thirdlife.iterrpg.procedures.ArcanistTableButtonConditionProcedure;
-import net.thirdlife.iterrpg.network.ArcanistTableGuiButtonMessage;
+import net.thirdlife.iterrpg.common.network.ArcanistTableGuiButtonMessage;
 import net.thirdlife.iterrpg.IterRpgMod;
 
 import net.minecraft.world.level.Level;

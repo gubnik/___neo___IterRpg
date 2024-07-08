@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 
 import net.minecraft.world.level.LevelAccessor;
 
@@ -17,6 +17,6 @@ public class SpiderlingsConfigConditionProcedure {
 		com.google.gson.JsonObject functions = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject checkfor = new com.google.gson.JsonObject();
 		boolean flag = false;
-		return IterRpgModVariables.MapVariables.get(world).config_spiderlings;
+		return GlobalVariables.MapVariables.get(world).config_spiderlings;
 	}
 }

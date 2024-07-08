@@ -1,7 +1,7 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.init.IterRpgModItems;
-import net.thirdlife.iterrpg.entity.CaltropThrownEntity;
+import net.thirdlife.iterrpg.init.ItemRegistry;
+import net.thirdlife.iterrpg.common.entity.CaltropThrownEntity;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
@@ -34,7 +34,7 @@ public class CaltropDamageProcedure {
 				entity.discard();
 			if (Mth.nextInt(RandomSource.create(), 1, 4) == 2) {
 				if (world instanceof ServerLevel _level) {
-					ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(IterRpgModItems.CALTROP.get()));
+					ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ItemRegistry.CALTROP.get()));
 					entityToSpawn.setPickUpDelay(10);
 					_level.addFreshEntity(entityToSpawn);
 				}

@@ -1,6 +1,6 @@
 package net.thirdlife.iterrpg.procedures;
 
-import net.thirdlife.iterrpg.network.IterRpgModVariables;
+import net.thirdlife.iterrpg.common.network.GlobalVariables;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -37,7 +37,7 @@ public class HellArmorSetBonusProcedure {
 		double chance = 0;
 		double generator_distance = 0;
 		double previousRecipe = 0;
-		if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).ElementalArmorCooldown <= 1 && entity.onGround() && entity.isShiftKeyDown() && entity.isSprinting()) {
+		if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).ElementalArmorCooldown <= 1 && entity.onGround() && entity.isShiftKeyDown() && entity.isSprinting()) {
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
 					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.firecharge.use")), SoundSource.PLAYERS, 1, 1);
@@ -50,7 +50,7 @@ public class HellArmorSetBonusProcedure {
 			(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY).getOrCreateTag().putDouble("dash", 12);
 			{
 				double _setval = 64;
-				entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.ElementalArmorCooldown = _setval;
 					capability.syncPlayerVariables(entity);
 				});
@@ -115,7 +115,7 @@ public class HellArmorSetBonusProcedure {
 				}
 			}
 		}
-		if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).ElementalArmorPassiveCooldown <= 1) {
+		if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).ElementalArmorPassiveCooldown <= 1) {
 			{
 				final Vec3 _center = new Vec3(x, y, z);
 				List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(12 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
@@ -124,7 +124,7 @@ public class HellArmorSetBonusProcedure {
 						entityiterator.setSecondsOnFire(1);
 						{
 							double _setval = 20;
-							entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 								capability.ElementalArmorPassiveCooldown = _setval;
 								capability.syncPlayerVariables(entity);
 							});
@@ -133,7 +133,7 @@ public class HellArmorSetBonusProcedure {
 				}
 			}
 		}
-		if ((entity.getCapability(IterRpgModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new IterRpgModVariables.PlayerVariables())).ElementalArmorPassiveCooldown > 1) {
+		if ((entity.getCapability(GlobalVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GlobalVariables.PlayerVariables())).ElementalArmorPassiveCooldown > 1) {
 			world.addParticle(ParticleTypes.FLAME, (x + Mth.nextDouble(RandomSource.create(), entity.getBbWidth() / (-1.75), entity.getBbWidth() / 1.75)), (y + Mth.nextDouble(RandomSource.create(), 0, entity.getBbHeight() / 1.75)),
 					(z + Mth.nextDouble(RandomSource.create(), entity.getBbWidth() / (-1.75), entity.getBbWidth() / 1.75)), 0, (Mth.nextDouble(RandomSource.create(), 0.04, 0.1)), 0);
 		}
